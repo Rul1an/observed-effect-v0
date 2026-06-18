@@ -1,0 +1,28 @@
+{
+  "all_expected": true,
+  "all_invariants_hold": true,
+  "cases": 14,
+  "decision_counts": {
+    "allow": 5,
+    "block": 3,
+    "quarantine": 1,
+    "review_required": 5
+  },
+  "failures": [],
+  "invariants": {
+    "absence_is_not_clean": true,
+    "broken_advisory_fails_closed": true,
+    "effect_never_auto_hard_blocks_without_opt_in": true,
+    "record_carries_no_verdict_field": true,
+    "surface_block_never_downgraded": true,
+    "surface_is_always_authority": true
+  },
+  "non_claims": [
+    "observation, not a verdict: this record carries no action, severity, or decision and cannot drive a block by itself",
+    "not runtime truth: coverage is bounded to the scope field; absence of an observed effect within scope is not proof none occurred",
+    "a recompute match proves the bytes are intact under the declared profile, not that the projection is complete enough to support any claim",
+    "says nothing about the tool author's trust or intent; surface drift remains the deterministic authority",
+    "observer/consumer record, not an issuer: no signature or attestation is asserted here"
+  ],
+  "schema": "assay.experiment.observed_effect_drift_consumer.v0"
+}

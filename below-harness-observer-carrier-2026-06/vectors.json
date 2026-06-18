@@ -1,0 +1,613 @@
+{
+  "carrier_schema": "assay.observed_effect.v1",
+  "coverage_dimensions": [
+    "process_exec",
+    "network_connect",
+    "file_open",
+    "payload_content"
+  ],
+  "invariant": "missing or not_observed required coverage -> incomplete, never match",
+  "non_claims": [
+    "observation, not runtime truth: bounded to the coverage map; an unobserved dimension is a gap, not a pass",
+    "the observer is a source of evidence, not a trusted oracle of intent or maliciousness",
+    "a match verdict means observed matched declared under the stated coverage, and says nothing about what was not observed",
+    "declared-vs-observed against the tool's own declaration, not a learned behavioral baseline",
+    "observer/consumer record, not an issuer: no signature or attestation is asserted here"
+  ],
+  "observer_coverage_cases": [
+    {
+      "case": {
+        "digest": "sha256:895420fd663ee1d25deff588222fe2911974a8ccffed2a499491c719393ad4f2",
+        "record": {
+          "basis": "observed",
+          "coverage": {
+            "file_open": "observed",
+            "network_connect": "observed",
+            "payload_content": "observed",
+            "process_exec": "observed"
+          },
+          "declared_effect": {
+            "filesystem": [
+              "read:/docs"
+            ],
+            "network": []
+          },
+          "divergence": [],
+          "non_claims": [
+            "observation, not runtime truth: bounded to the coverage map; an unobserved dimension is a gap, not a pass",
+            "the observer is a source of evidence, not a trusted oracle of intent or maliciousness",
+            "a match verdict means observed matched declared under the stated coverage, and says nothing about what was not observed",
+            "declared-vs-observed against the tool's own declaration, not a learned behavioral baseline",
+            "observer/consumer record, not an issuer: no signature or attestation is asserted here"
+          ],
+          "observed_effect": {
+            "filesystem": [
+              "read:/docs"
+            ],
+            "network": []
+          },
+          "observer": {
+            "kernel": "6.8.0",
+            "mode": "observe",
+            "type": "tetragon",
+            "version": "1.4.0"
+          },
+          "schema": "assay.observed_effect",
+          "schema_version": "1",
+          "scope": "ipv4_tcp_connect",
+          "tool": "fetch_doc"
+        },
+        "required_coverage": [
+          "network_connect"
+        ],
+        "verdict": {
+          "reason": "observed_matched_declared_under_complete_required_coverage",
+          "verdict": "match"
+        }
+      },
+      "id": "match_full_coverage",
+      "kind": "match"
+    },
+    {
+      "case": {
+        "digest": "sha256:4334be0d85a8c57c3f38620a7d2d68923fc585d2149720e9682f651f3dcd77c2",
+        "record": {
+          "basis": "observed",
+          "coverage": {
+            "file_open": "observed",
+            "network_connect": "observed",
+            "payload_content": "observed",
+            "process_exec": "observed"
+          },
+          "declared_effect": {
+            "filesystem": [
+              "read:/docs"
+            ],
+            "network": []
+          },
+          "divergence": [
+            "egress"
+          ],
+          "non_claims": [
+            "observation, not runtime truth: bounded to the coverage map; an unobserved dimension is a gap, not a pass",
+            "the observer is a source of evidence, not a trusted oracle of intent or maliciousness",
+            "a match verdict means observed matched declared under the stated coverage, and says nothing about what was not observed",
+            "declared-vs-observed against the tool's own declaration, not a learned behavioral baseline",
+            "observer/consumer record, not an issuer: no signature or attestation is asserted here"
+          ],
+          "observed_effect": {
+            "filesystem": [
+              "read:/docs"
+            ],
+            "network": [
+              "egress:tcp:203.0.113.7:443"
+            ]
+          },
+          "observer": {
+            "kernel": "6.8.0",
+            "mode": "observe",
+            "type": "tetragon",
+            "version": "1.4.0"
+          },
+          "schema": "assay.observed_effect",
+          "schema_version": "1",
+          "scope": "ipv4_tcp_connect",
+          "tool": "fetch_doc"
+        },
+        "required_coverage": [
+          "network_connect"
+        ],
+        "verdict": {
+          "reason": "observed_effect_diverges_from_declared",
+          "verdict": "mismatch"
+        }
+      },
+      "id": "mismatch_observed_egress",
+      "kind": "mismatch"
+    },
+    {
+      "case": {
+        "digest": "sha256:70e186953b5b0a3412a46687de6f1303cbeaeb3ff3f576e1a7c702dc95205e71",
+        "record": {
+          "basis": "not_observed",
+          "coverage": {
+            "file_open": "observed",
+            "network_connect": "not_observed",
+            "payload_content": "observed",
+            "process_exec": "observed"
+          },
+          "declared_effect": {
+            "filesystem": [
+              "read:/docs"
+            ],
+            "network": []
+          },
+          "divergence": [],
+          "non_claims": [
+            "observation, not runtime truth: bounded to the coverage map; an unobserved dimension is a gap, not a pass",
+            "the observer is a source of evidence, not a trusted oracle of intent or maliciousness",
+            "a match verdict means observed matched declared under the stated coverage, and says nothing about what was not observed",
+            "declared-vs-observed against the tool's own declaration, not a learned behavioral baseline",
+            "observer/consumer record, not an issuer: no signature or attestation is asserted here"
+          ],
+          "observed_effect": {
+            "filesystem": [
+              "read:/docs"
+            ]
+          },
+          "observer": {
+            "kernel": "6.8.0",
+            "mode": "observe",
+            "type": "tetragon",
+            "version": "1.4.0"
+          },
+          "schema": "assay.observed_effect",
+          "schema_version": "1",
+          "scope": "ipv4_tcp_connect",
+          "tool": "fetch_doc"
+        },
+        "required_coverage": [
+          "network_connect"
+        ],
+        "verdict": {
+          "reason": "required_coverage_not_observed:network_connect",
+          "verdict": "incomplete"
+        }
+      },
+      "id": "incomplete_not_observed",
+      "kind": "incomplete"
+    },
+    {
+      "case": {
+        "digest": "sha256:c60c798cadc4e8943060b60bb825610183d727367866f4ab4e233aac839db7d1",
+        "record": {
+          "basis": "not_observed",
+          "coverage": {
+            "file_open": "observed",
+            "process_exec": "observed"
+          },
+          "declared_effect": {
+            "filesystem": [
+              "read:/docs"
+            ],
+            "network": []
+          },
+          "divergence": [],
+          "non_claims": [
+            "observation, not runtime truth: bounded to the coverage map; an unobserved dimension is a gap, not a pass",
+            "the observer is a source of evidence, not a trusted oracle of intent or maliciousness",
+            "a match verdict means observed matched declared under the stated coverage, and says nothing about what was not observed",
+            "declared-vs-observed against the tool's own declaration, not a learned behavioral baseline",
+            "observer/consumer record, not an issuer: no signature or attestation is asserted here"
+          ],
+          "observed_effect": {
+            "filesystem": [
+              "read:/docs"
+            ]
+          },
+          "observer": {
+            "kernel": "6.8.0",
+            "mode": "observe",
+            "type": "tetragon",
+            "version": "1.4.0"
+          },
+          "schema": "assay.observed_effect",
+          "schema_version": "1",
+          "scope": "ipv4_tcp_connect",
+          "tool": "fetch_doc"
+        },
+        "required_coverage": [
+          "network_connect"
+        ],
+        "verdict": {
+          "reason": "required_coverage_not_observed:network_connect",
+          "verdict": "incomplete"
+        }
+      },
+      "id": "incomplete_missing_dimension",
+      "kind": "incomplete"
+    },
+    {
+      "case": {
+        "digest": "sha256:e17fdbf1ad1754c68fbc40cdeca416abf62e47600864ef6a5edc078f142c7eaf",
+        "record": {
+          "basis": "observed",
+          "coverage": {
+            "file_open": "observed",
+            "network_connect": "observed",
+            "payload_content": "observed",
+            "process_exec": "observed"
+          },
+          "declared_effect": {
+            "filesystem": [
+              "read:/docs"
+            ],
+            "network": []
+          },
+          "divergence": [
+            "egress"
+          ],
+          "non_claims": [
+            "observation, not runtime truth: bounded to the coverage map; an unobserved dimension is a gap, not a pass",
+            "the observer is a source of evidence, not a trusted oracle of intent or maliciousness",
+            "a match verdict means observed matched declared under the stated coverage, and says nothing about what was not observed",
+            "declared-vs-observed against the tool's own declaration, not a learned behavioral baseline",
+            "observer/consumer record, not an issuer: no signature or attestation is asserted here"
+          ],
+          "observed_effect": {
+            "filesystem": [
+              "read:/docs"
+            ],
+            "network": [
+              "egress:tcp:203.0.113.7:443"
+            ]
+          },
+          "observer": {
+            "kernel": "6.8.0",
+            "mode": "observe",
+            "type": "",
+            "version": "1.4.0"
+          },
+          "schema": "assay.observed_effect",
+          "schema_version": "1",
+          "scope": "ipv4_tcp_connect",
+          "tool": "fetch_doc"
+        },
+        "required_coverage": [
+          "network_connect"
+        ],
+        "verdict": {
+          "reason": "observer_type_required",
+          "verdict": "invalid"
+        }
+      },
+      "id": "invalid_no_observer_type",
+      "kind": "invalid"
+    },
+    {
+      "case": {
+        "digest": "sha256:9b8cdb16b4dda63c661ab4e344396ab99fe2c2f62a14883677ba79e8f5d885fd",
+        "record": {
+          "basis": "observed",
+          "coverage": {
+            "file_open": "observed",
+            "network_connect": "partial",
+            "payload_content": "observed",
+            "process_exec": "observed"
+          },
+          "declared_effect": {
+            "filesystem": [
+              "read:/docs"
+            ],
+            "network": []
+          },
+          "divergence": [],
+          "non_claims": [
+            "observation, not runtime truth: bounded to the coverage map; an unobserved dimension is a gap, not a pass",
+            "the observer is a source of evidence, not a trusted oracle of intent or maliciousness",
+            "a match verdict means observed matched declared under the stated coverage, and says nothing about what was not observed",
+            "declared-vs-observed against the tool's own declaration, not a learned behavioral baseline",
+            "observer/consumer record, not an issuer: no signature or attestation is asserted here"
+          ],
+          "observed_effect": {
+            "network": []
+          },
+          "observer": {
+            "kernel": "6.8.0",
+            "mode": "observe",
+            "type": "tetragon",
+            "version": "1.4.0"
+          },
+          "schema": "assay.observed_effect",
+          "schema_version": "1",
+          "scope": "ipv4_tcp_connect",
+          "tool": "fetch_doc"
+        },
+        "required_coverage": [
+          "network_connect"
+        ],
+        "verdict": {
+          "reason": "unknown_coverage_value:network_connect=partial",
+          "verdict": "invalid"
+        }
+      },
+      "id": "invalid_unknown_coverage_value",
+      "kind": "invalid"
+    }
+  ],
+  "schema": "assay.experiment.below_harness_observer_carrier.v0",
+  "tetragon_adapter_cases": [
+    {
+      "case": {
+        "digest": "sha256:21c505ca79354d9ec79277352fd940de48cb49730f4262b78de7de986984fd1d",
+        "record": {
+          "basis": "observed",
+          "coverage": {
+            "file_open": "not_observed",
+            "network_connect": "observed",
+            "payload_content": "not_observed",
+            "process_exec": "observed"
+          },
+          "declared_effect": {
+            "network": []
+          },
+          "divergence": [
+            "egress"
+          ],
+          "non_claims": [
+            "observation, not runtime truth: bounded to the coverage map; an unobserved dimension is a gap, not a pass",
+            "the observer is a source of evidence, not a trusted oracle of intent or maliciousness",
+            "a match verdict means observed matched declared under the stated coverage, and says nothing about what was not observed",
+            "declared-vs-observed against the tool's own declaration, not a learned behavioral baseline",
+            "observer/consumer record, not an issuer: no signature or attestation is asserted here"
+          ],
+          "observed_effect": {
+            "network": [
+              "egress:tcp:203.0.113.7:443"
+            ]
+          },
+          "observer": {
+            "kernel": "6.8.0",
+            "mode": "observe",
+            "type": "tetragon",
+            "version": "1.4.0"
+          },
+          "schema": "assay.observed_effect",
+          "schema_version": "1",
+          "scope": "ipv4_tcp_connect",
+          "tool": "fetch_doc"
+        },
+        "required_coverage": [
+          "network_connect"
+        ],
+        "verdict": {
+          "reason": "observed_effect_diverges_from_declared",
+          "verdict": "mismatch"
+        }
+      },
+      "id": "tetragon_connect_mismatch",
+      "input": {
+        "declared_effect": {
+          "network": []
+        },
+        "events": [
+          {
+            "process_connect": {
+              "destination_ip": "203.0.113.7",
+              "destination_port": 443,
+              "process": {
+                "binary": "/usr/bin/fetch_doc",
+                "pid": 4242
+              },
+              "protocol": "TCP"
+            }
+          }
+        ],
+        "observed_dimensions": [
+          "process_exec",
+          "network_connect"
+        ],
+        "observer": {
+          "kernel": "6.8.0",
+          "mode": "observe",
+          "type": "tetragon",
+          "version": "1.4.0"
+        },
+        "required_coverage": [
+          "network_connect"
+        ],
+        "tool": "fetch_doc"
+      },
+      "kind": "tetragon_adapter"
+    },
+    {
+      "case": {
+        "digest": "sha256:b1b3a204f17882f778b1e5147b2693788e7bb350a71e5d68ec47d2c9c2262ff2",
+        "record": {
+          "basis": "observed",
+          "coverage": {
+            "file_open": "not_observed",
+            "network_connect": "observed",
+            "payload_content": "not_observed",
+            "process_exec": "observed"
+          },
+          "declared_effect": {
+            "network": []
+          },
+          "divergence": [],
+          "non_claims": [
+            "observation, not runtime truth: bounded to the coverage map; an unobserved dimension is a gap, not a pass",
+            "the observer is a source of evidence, not a trusted oracle of intent or maliciousness",
+            "a match verdict means observed matched declared under the stated coverage, and says nothing about what was not observed",
+            "declared-vs-observed against the tool's own declaration, not a learned behavioral baseline",
+            "observer/consumer record, not an issuer: no signature or attestation is asserted here"
+          ],
+          "observed_effect": {
+            "network": []
+          },
+          "observer": {
+            "kernel": "6.8.0",
+            "mode": "observe",
+            "type": "tetragon",
+            "version": "1.4.0"
+          },
+          "schema": "assay.observed_effect",
+          "schema_version": "1",
+          "scope": "ipv4_tcp_connect",
+          "tool": "fetch_doc"
+        },
+        "required_coverage": [
+          "network_connect"
+        ],
+        "verdict": {
+          "reason": "observed_matched_declared_under_complete_required_coverage",
+          "verdict": "match"
+        }
+      },
+      "id": "tetragon_watched_no_connect_match",
+      "input": {
+        "declared_effect": {
+          "network": []
+        },
+        "events": [
+          {
+            "process_exec": {
+              "process": {
+                "binary": "/usr/bin/fetch_doc",
+                "pid": 4242
+              }
+            }
+          }
+        ],
+        "observed_dimensions": [
+          "process_exec",
+          "network_connect"
+        ],
+        "observer": {
+          "kernel": "6.8.0",
+          "mode": "observe",
+          "type": "tetragon",
+          "version": "1.4.0"
+        },
+        "required_coverage": [
+          "network_connect"
+        ],
+        "tool": "fetch_doc"
+      },
+      "kind": "tetragon_adapter"
+    },
+    {
+      "case": {
+        "digest": "sha256:608e1716520699366b13438b15d5c586d5e08ad506c2f069e6897b6af2b6e2ba",
+        "record": {
+          "basis": "not_observed",
+          "coverage": {
+            "file_open": "not_observed",
+            "network_connect": "not_observed",
+            "payload_content": "not_observed",
+            "process_exec": "observed"
+          },
+          "declared_effect": {
+            "network": []
+          },
+          "divergence": [],
+          "non_claims": [
+            "observation, not runtime truth: bounded to the coverage map; an unobserved dimension is a gap, not a pass",
+            "the observer is a source of evidence, not a trusted oracle of intent or maliciousness",
+            "a match verdict means observed matched declared under the stated coverage, and says nothing about what was not observed",
+            "declared-vs-observed against the tool's own declaration, not a learned behavioral baseline",
+            "observer/consumer record, not an issuer: no signature or attestation is asserted here"
+          ],
+          "observed_effect": {},
+          "observer": {
+            "kernel": "6.8.0",
+            "mode": "observe",
+            "type": "tetragon",
+            "version": "1.4.0"
+          },
+          "schema": "assay.observed_effect",
+          "schema_version": "1",
+          "scope": "ipv4_tcp_connect",
+          "tool": "fetch_doc"
+        },
+        "required_coverage": [
+          "network_connect"
+        ],
+        "verdict": {
+          "reason": "required_coverage_not_observed:network_connect",
+          "verdict": "incomplete"
+        }
+      },
+      "id": "tetragon_network_not_watched_incomplete",
+      "input": {
+        "declared_effect": {
+          "network": []
+        },
+        "events": [
+          {
+            "process_exec": {
+              "process": {
+                "binary": "/usr/bin/fetch_doc",
+                "pid": 4242
+              }
+            }
+          }
+        ],
+        "observed_dimensions": [
+          "process_exec"
+        ],
+        "observer": {
+          "kernel": "6.8.0",
+          "mode": "observe",
+          "type": "tetragon",
+          "version": "1.4.0"
+        },
+        "required_coverage": [
+          "network_connect"
+        ],
+        "tool": "fetch_doc"
+      },
+      "kind": "tetragon_adapter"
+    },
+    {
+      "case": {
+        "digest": null,
+        "record": null,
+        "required_coverage": [
+          "network_connect"
+        ],
+        "verdict": {
+          "reason": "tetragon_adapter:unrecognized Tetragon event type: ['totally_unknown_event']",
+          "verdict": "invalid"
+        }
+      },
+      "id": "tetragon_malformed_invalid",
+      "input": {
+        "declared_effect": {
+          "network": []
+        },
+        "events": [
+          {
+            "totally_unknown_event": {
+              "foo": "bar"
+            }
+          }
+        ],
+        "observed_dimensions": [
+          "network_connect"
+        ],
+        "observer": {
+          "kernel": "6.8.0",
+          "mode": "observe",
+          "type": "tetragon",
+          "version": "1.4.0"
+        },
+        "required_coverage": [
+          "network_connect"
+        ],
+        "tool": "fetch_doc"
+      },
+      "kind": "tetragon_adapter"
+    }
+  ]
+}

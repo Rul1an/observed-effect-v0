@@ -1,0 +1,23 @@
+{
+  "all_expected": true,
+  "all_invariants_hold": true,
+  "failures": [],
+  "invariants": {
+    "missing_required_coverage_never_match": true,
+    "unknown_coverage_value_never_match": true
+  },
+  "non_claims": [
+    "observation, not runtime truth: bounded to the coverage map; an unobserved dimension is a gap, not a pass",
+    "the observer is a source of evidence, not a trusted oracle of intent or maliciousness",
+    "a match verdict means observed matched declared under the stated coverage, and says nothing about what was not observed",
+    "declared-vs-observed against the tool's own declaration, not a learned behavioral baseline",
+    "observer/consumer record, not an issuer: no signature or attestation is asserted here"
+  ],
+  "schema": "assay.experiment.below_harness_observer_carrier.v0",
+  "verdict_counts": {
+    "incomplete": 3,
+    "invalid": 3,
+    "match": 2,
+    "mismatch": 2
+  }
+}

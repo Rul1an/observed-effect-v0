@@ -1,0 +1,361 @@
+{
+  "canonical_canonicalization": "jcs-json-v1",
+  "divergence_kinds": {
+    "data_read": "a read of sensitive data",
+    "egress": "an outbound network effect",
+    "exec": "a process spawn or code execution",
+    "filesystem": "a file write, modify, or delete"
+  },
+  "reader_contract": "Resolve the body from envelope.ref, verify envelope.digest is sha256 over the canonical bytes of the body under the label (recognized aliases resolve to jcs-json-v1), then read basis and the divergence kinds. basis in (not_observed, unknown) is insufficient coverage, never a pass. The record carries no verdict; the decision is the consumer's.",
+  "recognized_aliases": [
+    "json/jcs-rfc8785",
+    "JCS"
+  ],
+  "samples": [
+    {
+      "body": {
+        "basis": "observed",
+        "coverage": "bounded",
+        "declared_effect": {
+          "network": [
+            "egress:tcp:api.github.com:443"
+          ]
+        },
+        "divergence": [],
+        "non_claims": [
+          "observation, not a verdict: this record carries no action, severity, or decision and cannot drive a block by itself",
+          "not runtime truth: coverage is bounded to the scope field; absence of an observed effect within scope is not proof none occurred",
+          "a recompute match proves the bytes are intact under the declared profile, not that the projection is complete enough to support any claim",
+          "says nothing about the tool author's trust or intent; surface drift remains the deterministic authority",
+          "observer/consumer record, not an issuer: no signature or attestation is asserted here"
+        ],
+        "observed_effect": {
+          "network": [
+            "egress:tcp:api.github.com:443"
+          ]
+        },
+        "schema": "assay.observed_effect.v0",
+        "schema_version": "0",
+        "scope": "ipv4_tcp_connect",
+        "tool": "sync_repo"
+      },
+      "envelope": {
+        "canonicalization": "jcs-json-v1",
+        "digest": "sha256:c2a9723ea19504aad6f8336ccbac9d9e434d6246064d404ed8e741e1930c789c",
+        "ref": "audit://sample/match_agreement",
+        "schema": "https://assay.dev/schemas/observed-effect.v0.json",
+        "schema_version": "0",
+        "type": "observed-effect"
+      },
+      "id": "match_agreement",
+      "note": "basis=observed, divergence=[]: observed matched declared. Within the declared set."
+    },
+    {
+      "body": {
+        "basis": "observed",
+        "coverage": "bounded",
+        "declared_effect": {
+          "filesystem": [
+            "read:/docs"
+          ],
+          "network": []
+        },
+        "divergence": [
+          "egress"
+        ],
+        "non_claims": [
+          "observation, not a verdict: this record carries no action, severity, or decision and cannot drive a block by itself",
+          "not runtime truth: coverage is bounded to the scope field; absence of an observed effect within scope is not proof none occurred",
+          "a recompute match proves the bytes are intact under the declared profile, not that the projection is complete enough to support any claim",
+          "says nothing about the tool author's trust or intent; surface drift remains the deterministic authority",
+          "observer/consumer record, not an issuer: no signature or attestation is asserted here"
+        ],
+        "observed_effect": {
+          "filesystem": [
+            "read:/docs"
+          ],
+          "network": [
+            "egress:tcp:203.0.113.7:443"
+          ]
+        },
+        "schema": "assay.observed_effect.v0",
+        "schema_version": "0",
+        "scope": "ipv4_tcp_connect",
+        "tool": "fetch_doc"
+      },
+      "envelope": {
+        "canonicalization": "jcs-json-v1",
+        "digest": "sha256:07c8ade8a21a0447ad2b871947cb87e4fbd8590fb6bf2c13f1f8bd707e6f5713",
+        "ref": "audit://sample/divergence_egress",
+        "schema": "https://assay.dev/schemas/observed-effect.v0.json",
+        "schema_version": "0",
+        "type": "observed-effect"
+      },
+      "id": "divergence_egress",
+      "note": "basis=observed, divergence=[egress]: declared no network, an outbound connect was observed."
+    },
+    {
+      "body": {
+        "basis": "observed",
+        "coverage": "bounded",
+        "declared_effect": {
+          "filesystem": []
+        },
+        "divergence": [
+          "filesystem"
+        ],
+        "non_claims": [
+          "observation, not a verdict: this record carries no action, severity, or decision and cannot drive a block by itself",
+          "not runtime truth: coverage is bounded to the scope field; absence of an observed effect within scope is not proof none occurred",
+          "a recompute match proves the bytes are intact under the declared profile, not that the projection is complete enough to support any claim",
+          "says nothing about the tool author's trust or intent; surface drift remains the deterministic authority",
+          "observer/consumer record, not an issuer: no signature or attestation is asserted here"
+        ],
+        "observed_effect": {
+          "filesystem": [
+            "write:/etc/cron.d/sched"
+          ]
+        },
+        "schema": "assay.observed_effect.v0",
+        "schema_version": "0",
+        "scope": "file_write",
+        "tool": "render_report"
+      },
+      "envelope": {
+        "canonicalization": "jcs-json-v1",
+        "digest": "sha256:8e21d92aba650f68aea799f84d6e1449bd5bbe4613e2eed6cd4f8792e6acfaaa",
+        "ref": "audit://sample/divergence_filesystem",
+        "schema": "https://assay.dev/schemas/observed-effect.v0.json",
+        "schema_version": "0",
+        "type": "observed-effect"
+      },
+      "id": "divergence_filesystem",
+      "note": "basis=observed, divergence=[filesystem]: declared no writes, a file write was observed."
+    },
+    {
+      "body": {
+        "basis": "observed",
+        "coverage": "bounded",
+        "declared_effect": {
+          "filesystem": [
+            "read:/docs"
+          ]
+        },
+        "divergence": [
+          "data_read"
+        ],
+        "non_claims": [
+          "observation, not a verdict: this record carries no action, severity, or decision and cannot drive a block by itself",
+          "not runtime truth: coverage is bounded to the scope field; absence of an observed effect within scope is not proof none occurred",
+          "a recompute match proves the bytes are intact under the declared profile, not that the projection is complete enough to support any claim",
+          "says nothing about the tool author's trust or intent; surface drift remains the deterministic authority",
+          "observer/consumer record, not an issuer: no signature or attestation is asserted here"
+        ],
+        "observed_effect": {
+          "filesystem": [
+            "read:/etc/shadow"
+          ]
+        },
+        "schema": "assay.observed_effect.v0",
+        "schema_version": "0",
+        "scope": "file_read",
+        "tool": "summarize"
+      },
+      "envelope": {
+        "canonicalization": "jcs-json-v1",
+        "digest": "sha256:eb68ecbdd5e487e6e67f92c21e80f1f27c025c546c054018858ae0ab2d2fd34b",
+        "ref": "audit://sample/divergence_data_read",
+        "schema": "https://assay.dev/schemas/observed-effect.v0.json",
+        "schema_version": "0",
+        "type": "observed-effect"
+      },
+      "id": "divergence_data_read",
+      "note": "basis=observed, divergence=[data_read]: a read of sensitive data outside the declared scope."
+    },
+    {
+      "body": {
+        "basis": "observed",
+        "coverage": "bounded",
+        "declared_effect": {},
+        "divergence": [
+          "exec"
+        ],
+        "non_claims": [
+          "observation, not a verdict: this record carries no action, severity, or decision and cannot drive a block by itself",
+          "not runtime truth: coverage is bounded to the scope field; absence of an observed effect within scope is not proof none occurred",
+          "a recompute match proves the bytes are intact under the declared profile, not that the projection is complete enough to support any claim",
+          "says nothing about the tool author's trust or intent; surface drift remains the deterministic authority",
+          "observer/consumer record, not an issuer: no signature or attestation is asserted here"
+        ],
+        "observed_effect": {
+          "process": [
+            "spawn:/bin/sh"
+          ]
+        },
+        "schema": "assay.observed_effect.v0",
+        "schema_version": "0",
+        "scope": "process_exec",
+        "tool": "lint"
+      },
+      "envelope": {
+        "canonicalization": "jcs-json-v1",
+        "digest": "sha256:7e0390616830948b36e8906fb45edabad60d783a3d4a992826d45d6b3e315cae",
+        "ref": "audit://sample/divergence_exec",
+        "schema": "https://assay.dev/schemas/observed-effect.v0.json",
+        "schema_version": "0",
+        "type": "observed-effect"
+      },
+      "id": "divergence_exec",
+      "note": "basis=observed, divergence=[exec]: an undeclared process spawn was observed."
+    },
+    {
+      "body": {
+        "basis": "observed",
+        "coverage": "bounded",
+        "declared_effect": {
+          "filesystem": [],
+          "network": []
+        },
+        "divergence": [
+          "egress",
+          "filesystem"
+        ],
+        "non_claims": [
+          "observation, not a verdict: this record carries no action, severity, or decision and cannot drive a block by itself",
+          "not runtime truth: coverage is bounded to the scope field; absence of an observed effect within scope is not proof none occurred",
+          "a recompute match proves the bytes are intact under the declared profile, not that the projection is complete enough to support any claim",
+          "says nothing about the tool author's trust or intent; surface drift remains the deterministic authority",
+          "observer/consumer record, not an issuer: no signature or attestation is asserted here"
+        ],
+        "observed_effect": {
+          "filesystem": [
+            "write:/opt/app/cfg"
+          ],
+          "network": [
+            "egress:tcp:203.0.113.7:443"
+          ]
+        },
+        "schema": "assay.observed_effect.v0",
+        "schema_version": "0",
+        "scope": "ipv4_tcp_connect",
+        "tool": "deploy"
+      },
+      "envelope": {
+        "canonicalization": "jcs-json-v1",
+        "digest": "sha256:64e3a25a43f1904b40439ac1ab97bafd5bc5bdbaa11def8df95e0f5ce0822647",
+        "ref": "audit://sample/divergence_multi",
+        "schema": "https://assay.dev/schemas/observed-effect.v0.json",
+        "schema_version": "0",
+        "type": "observed-effect"
+      },
+      "id": "divergence_multi",
+      "note": "basis=observed, divergence=[egress, filesystem]: more than one capability axis diverged."
+    },
+    {
+      "body": {
+        "basis": "not_observed",
+        "coverage": "bounded",
+        "declared_effect": {
+          "filesystem": [
+            "read:/docs"
+          ],
+          "network": []
+        },
+        "divergence": [],
+        "non_claims": [
+          "observation, not a verdict: this record carries no action, severity, or decision and cannot drive a block by itself",
+          "not runtime truth: coverage is bounded to the scope field; absence of an observed effect within scope is not proof none occurred",
+          "a recompute match proves the bytes are intact under the declared profile, not that the projection is complete enough to support any claim",
+          "says nothing about the tool author's trust or intent; surface drift remains the deterministic authority",
+          "observer/consumer record, not an issuer: no signature or attestation is asserted here"
+        ],
+        "observed_effect": {},
+        "schema": "assay.observed_effect.v0",
+        "schema_version": "0",
+        "scope": "ipv4_tcp_connect",
+        "tool": "fetch_doc"
+      },
+      "envelope": {
+        "canonicalization": "jcs-json-v1",
+        "digest": "sha256:69b842ea8668c5617cc6ed36897bb1d1bfab3ad6b095e345d8c1b7bad89d7ca4",
+        "ref": "audit://sample/insufficient_not_observed",
+        "schema": "https://assay.dev/schemas/observed-effect.v0.json",
+        "schema_version": "0",
+        "type": "observed-effect"
+      },
+      "id": "insufficient_not_observed",
+      "note": "basis=not_observed: the relevant channel was not in coverage. Insufficient coverage, never a pass."
+    },
+    {
+      "body": {
+        "basis": "unknown",
+        "coverage": "bounded",
+        "declared_effect": {
+          "network": []
+        },
+        "divergence": [],
+        "non_claims": [
+          "observation, not a verdict: this record carries no action, severity, or decision and cannot drive a block by itself",
+          "not runtime truth: coverage is bounded to the scope field; absence of an observed effect within scope is not proof none occurred",
+          "a recompute match proves the bytes are intact under the declared profile, not that the projection is complete enough to support any claim",
+          "says nothing about the tool author's trust or intent; surface drift remains the deterministic authority",
+          "observer/consumer record, not an issuer: no signature or attestation is asserted here"
+        ],
+        "observed_effect": {},
+        "schema": "assay.observed_effect.v0",
+        "schema_version": "0",
+        "scope": "ipv4_tcp_connect",
+        "tool": "fetch_doc"
+      },
+      "envelope": {
+        "canonicalization": "jcs-json-v1",
+        "digest": "sha256:ada316e030b69696ae16c706f7e70b0eb1b8c845e747c1a3a68dd25b54032bb5",
+        "ref": "audit://sample/insufficient_unknown",
+        "schema": "https://assay.dev/schemas/observed-effect.v0.json",
+        "schema_version": "0",
+        "type": "observed-effect"
+      },
+      "id": "insufficient_unknown",
+      "note": "basis=unknown: observed inconclusively. Insufficient coverage, never a pass."
+    },
+    {
+      "body": {
+        "basis": "observed",
+        "coverage": "bounded",
+        "declared_effect": {
+          "network": []
+        },
+        "divergence": [
+          "egress"
+        ],
+        "non_claims": [
+          "observation, not a verdict: this record carries no action, severity, or decision and cannot drive a block by itself",
+          "not runtime truth: coverage is bounded to the scope field; absence of an observed effect within scope is not proof none occurred",
+          "a recompute match proves the bytes are intact under the declared profile, not that the projection is complete enough to support any claim",
+          "says nothing about the tool author's trust or intent; surface drift remains the deterministic authority",
+          "observer/consumer record, not an issuer: no signature or attestation is asserted here"
+        ],
+        "observed_effect": {
+          "network": [
+            "egress:tcp:203.0.113.7:443"
+          ]
+        },
+        "schema": "assay.observed_effect.v0",
+        "schema_version": "0",
+        "scope": "ipv4_tcp_connect",
+        "tool": "fetch_doc"
+      },
+      "envelope": {
+        "canonicalization": "json/jcs-rfc8785",
+        "digest": "sha256:49e3f6d790539b4de1adfeae43a3970f1782bfc4284f2c500b4cc020d599fc51",
+        "ref": "audit://sample/alias_labeled_egress",
+        "schema": "https://assay.dev/schemas/observed-effect.v0.json",
+        "schema_version": "0",
+        "type": "observed-effect"
+      },
+      "id": "alias_labeled_egress",
+      "note": "Same record as divergence_egress, but the envelope is stamped json/jcs-rfc8785 (a recognized alias). A reader resolves the alias to jcs-json-v1 and the digest still verifies."
+    }
+  ],
+  "schema": "assay.observed_effect.samples.v0"
+}
