@@ -1,0 +1,549 @@
+{
+  "canonical_canonicalization": "jcs-json-v1",
+  "carriers_proven": [
+    "standalone-jcs",
+    "in-toto-dsse-statement",
+    "mcp-sep1913-evidenceRef",
+    "scitt-cose-statement"
+  ],
+  "invariant": "one content address per record, identical across every carrier and equal to the frozen v0 digest",
+  "predicate_type": "https://assay.dev/predicates/observed-effect/v0",
+  "recognized_aliases": [
+    "JCS",
+    "json/jcs-rfc8785"
+  ],
+  "records": [
+    {
+      "canonicalization_label": "jcs-json-v1",
+      "carriers": {
+        "in-toto-dsse-statement": {
+          "dsse": {
+            "payload": "eyJfdHlwZSI6Imh0dHBzOi8vaW4tdG90by5pby9TdGF0ZW1lbnQvdjEiLCJwcmVkaWNhdGUiOnsiYmFzaXMiOiJvYnNlcnZlZCIsImNvdmVyYWdlIjoiYm91bmRlZCIsImRlY2xhcmVkX2VmZmVjdCI6eyJuZXR3b3JrIjpbImVncmVzczp0Y3A6YXBpLmdpdGh1Yi5jb206NDQzIl19LCJkaXZlcmdlbmNlIjpbXSwibm9uX2NsYWltcyI6WyJvYnNlcnZhdGlvbiwgbm90IGEgdmVyZGljdDogdGhpcyByZWNvcmQgY2FycmllcyBubyBhY3Rpb24sIHNldmVyaXR5LCBvciBkZWNpc2lvbiBhbmQgY2Fubm90IGRyaXZlIGEgYmxvY2sgYnkgaXRzZWxmIiwibm90IHJ1bnRpbWUgdHJ1dGg6IGNvdmVyYWdlIGlzIGJvdW5kZWQgdG8gdGhlIHNjb3BlIGZpZWxkOyBhYnNlbmNlIG9mIGFuIG9ic2VydmVkIGVmZmVjdCB3aXRoaW4gc2NvcGUgaXMgbm90IHByb29mIG5vbmUgb2NjdXJyZWQiLCJhIHJlY29tcHV0ZSBtYXRjaCBwcm92ZXMgdGhlIGJ5dGVzIGFyZSBpbnRhY3QgdW5kZXIgdGhlIGRlY2xhcmVkIHByb2ZpbGUsIG5vdCB0aGF0IHRoZSBwcm9qZWN0aW9uIGlzIGNvbXBsZXRlIGVub3VnaCB0byBzdXBwb3J0IGFueSBjbGFpbSIsInNheXMgbm90aGluZyBhYm91dCB0aGUgdG9vbCBhdXRob3IncyB0cnVzdCBvciBpbnRlbnQ7IHN1cmZhY2UgZHJpZnQgcmVtYWlucyB0aGUgZGV0ZXJtaW5pc3RpYyBhdXRob3JpdHkiLCJvYnNlcnZlci9jb25zdW1lciByZWNvcmQsIG5vdCBhbiBpc3N1ZXI6IG5vIHNpZ25hdHVyZSBvciBhdHRlc3RhdGlvbiBpcyBhc3NlcnRlZCBoZXJlIl0sIm9ic2VydmVkX2VmZmVjdCI6eyJuZXR3b3JrIjpbImVncmVzczp0Y3A6YXBpLmdpdGh1Yi5jb206NDQzIl19LCJzY2hlbWEiOiJhc3NheS5vYnNlcnZlZF9lZmZlY3QudjAiLCJzY2hlbWFfdmVyc2lvbiI6IjAiLCJzY29wZSI6ImlwdjRfdGNwX2Nvbm5lY3QiLCJ0b29sIjoic3luY19yZXBvIn0sInByZWRpY2F0ZVR5cGUiOiJodHRwczovL2Fzc2F5LmRldi9wcmVkaWNhdGVzL29ic2VydmVkLWVmZmVjdC92MCIsInN1YmplY3QiOlt7ImRpZ2VzdCI6eyJzaGEyNTYiOiJjMmE5NzIzZWExOTUwNGFhZDZmODMzNmNjYmFjOWQ5ZTQzNGQ2MjQ2MDY0ZDQwNGVkOGU3NDFlMTkzMGM3ODljIn0sIm5hbWUiOiJvYnNlcnZlZC1lZmZlY3QvbWF0Y2hfYWdyZWVtZW50In1dfQ==",
+            "payloadType": "application/vnd.in-toto+json",
+            "signatures": []
+          }
+        },
+        "mcp-sep1913-evidenceRef": {
+          "_meta": {
+            "dev.assay/trust-annotations": {
+              "evidenceRef": {
+                "canonicalization": "jcs-json-v1",
+                "digest": "sha256:c2a9723ea19504aad6f8336ccbac9d9e434d6246064d404ed8e741e1930c789c",
+                "ref": "mcp-evidence://match_agreement",
+                "schema": "https://assay.dev/schemas/observed-effect.v0.json",
+                "type": "observed-effect"
+              },
+              "trust": "review"
+            }
+          },
+          "resolved_evidence": {
+            "mcp-evidence://match_agreement": {
+              "basis": "observed",
+              "coverage": "bounded",
+              "declared_effect": {
+                "network": [
+                  "egress:tcp:api.github.com:443"
+                ]
+              },
+              "divergence": [],
+              "non_claims": [
+                "observation, not a verdict: this record carries no action, severity, or decision and cannot drive a block by itself",
+                "not runtime truth: coverage is bounded to the scope field; absence of an observed effect within scope is not proof none occurred",
+                "a recompute match proves the bytes are intact under the declared profile, not that the projection is complete enough to support any claim",
+                "says nothing about the tool author's trust or intent; surface drift remains the deterministic authority",
+                "observer/consumer record, not an issuer: no signature or attestation is asserted here"
+              ],
+              "observed_effect": {
+                "network": [
+                  "egress:tcp:api.github.com:443"
+                ]
+              },
+              "schema": "assay.observed_effect.v0",
+              "schema_version": "0",
+              "scope": "ipv4_tcp_connect",
+              "tool": "sync_repo"
+            }
+          }
+        },
+        "scitt-cose-statement": {
+          "cose_sign1_modeled": true,
+          "payload_b64": "eyJiYXNpcyI6Im9ic2VydmVkIiwiY292ZXJhZ2UiOiJib3VuZGVkIiwiZGVjbGFyZWRfZWZmZWN0Ijp7Im5ldHdvcmsiOlsiZWdyZXNzOnRjcDphcGkuZ2l0aHViLmNvbTo0NDMiXX0sImRpdmVyZ2VuY2UiOltdLCJub25fY2xhaW1zIjpbIm9ic2VydmF0aW9uLCBub3QgYSB2ZXJkaWN0OiB0aGlzIHJlY29yZCBjYXJyaWVzIG5vIGFjdGlvbiwgc2V2ZXJpdHksIG9yIGRlY2lzaW9uIGFuZCBjYW5ub3QgZHJpdmUgYSBibG9jayBieSBpdHNlbGYiLCJub3QgcnVudGltZSB0cnV0aDogY292ZXJhZ2UgaXMgYm91bmRlZCB0byB0aGUgc2NvcGUgZmllbGQ7IGFic2VuY2Ugb2YgYW4gb2JzZXJ2ZWQgZWZmZWN0IHdpdGhpbiBzY29wZSBpcyBub3QgcHJvb2Ygbm9uZSBvY2N1cnJlZCIsImEgcmVjb21wdXRlIG1hdGNoIHByb3ZlcyB0aGUgYnl0ZXMgYXJlIGludGFjdCB1bmRlciB0aGUgZGVjbGFyZWQgcHJvZmlsZSwgbm90IHRoYXQgdGhlIHByb2plY3Rpb24gaXMgY29tcGxldGUgZW5vdWdoIHRvIHN1cHBvcnQgYW55IGNsYWltIiwic2F5cyBub3RoaW5nIGFib3V0IHRoZSB0b29sIGF1dGhvcidzIHRydXN0IG9yIGludGVudDsgc3VyZmFjZSBkcmlmdCByZW1haW5zIHRoZSBkZXRlcm1pbmlzdGljIGF1dGhvcml0eSIsIm9ic2VydmVyL2NvbnN1bWVyIHJlY29yZCwgbm90IGFuIGlzc3Vlcjogbm8gc2lnbmF0dXJlIG9yIGF0dGVzdGF0aW9uIGlzIGFzc2VydGVkIGhlcmUiXSwib2JzZXJ2ZWRfZWZmZWN0Ijp7Im5ldHdvcmsiOlsiZWdyZXNzOnRjcDphcGkuZ2l0aHViLmNvbTo0NDMiXX0sInNjaGVtYSI6ImFzc2F5Lm9ic2VydmVkX2VmZmVjdC52MCIsInNjaGVtYV92ZXJzaW9uIjoiMCIsInNjb3BlIjoiaXB2NF90Y3BfY29ubmVjdCIsInRvb2wiOiJzeW5jX3JlcG8ifQ==",
+          "protected": {
+            "3": "application/observed-effect+json",
+            "scitt_statement_note": "COSE_Sign1 / transparency receipt modeled; signing out of scope"
+          },
+          "receipt": null,
+          "statement_digest": "sha256:c2a9723ea19504aad6f8336ccbac9d9e434d6246064d404ed8e741e1930c789c"
+        },
+        "standalone-jcs": {
+          "body": {
+            "basis": "observed",
+            "coverage": "bounded",
+            "declared_effect": {
+              "network": [
+                "egress:tcp:api.github.com:443"
+              ]
+            },
+            "divergence": [],
+            "non_claims": [
+              "observation, not a verdict: this record carries no action, severity, or decision and cannot drive a block by itself",
+              "not runtime truth: coverage is bounded to the scope field; absence of an observed effect within scope is not proof none occurred",
+              "a recompute match proves the bytes are intact under the declared profile, not that the projection is complete enough to support any claim",
+              "says nothing about the tool author's trust or intent; surface drift remains the deterministic authority",
+              "observer/consumer record, not an issuer: no signature or attestation is asserted here"
+            ],
+            "observed_effect": {
+              "network": [
+                "egress:tcp:api.github.com:443"
+              ]
+            },
+            "schema": "assay.observed_effect.v0",
+            "schema_version": "0",
+            "scope": "ipv4_tcp_connect",
+            "tool": "sync_repo"
+          },
+          "envelope": {
+            "canonicalization": "jcs-json-v1",
+            "digest": "sha256:c2a9723ea19504aad6f8336ccbac9d9e434d6246064d404ed8e741e1930c789c",
+            "ref": "audit://neutral/match_agreement",
+            "schema": "https://assay.dev/schemas/observed-effect.v0.json",
+            "schema_version": "0",
+            "type": "observed-effect"
+          }
+        }
+      },
+      "expected_digest": "sha256:c2a9723ea19504aad6f8336ccbac9d9e434d6246064d404ed8e741e1930c789c",
+      "id": "match_agreement",
+      "resolves_to": "jcs-json-v1"
+    },
+    {
+      "canonicalization_label": "jcs-json-v1",
+      "carriers": {
+        "in-toto-dsse-statement": {
+          "dsse": {
+            "payload": "eyJfdHlwZSI6Imh0dHBzOi8vaW4tdG90by5pby9TdGF0ZW1lbnQvdjEiLCJwcmVkaWNhdGUiOnsiYmFzaXMiOiJvYnNlcnZlZCIsImNvdmVyYWdlIjoiYm91bmRlZCIsImRlY2xhcmVkX2VmZmVjdCI6eyJmaWxlc3lzdGVtIjpbInJlYWQ6L2RvY3MiXSwibmV0d29yayI6W119LCJkaXZlcmdlbmNlIjpbImVncmVzcyJdLCJub25fY2xhaW1zIjpbIm9ic2VydmF0aW9uLCBub3QgYSB2ZXJkaWN0OiB0aGlzIHJlY29yZCBjYXJyaWVzIG5vIGFjdGlvbiwgc2V2ZXJpdHksIG9yIGRlY2lzaW9uIGFuZCBjYW5ub3QgZHJpdmUgYSBibG9jayBieSBpdHNlbGYiLCJub3QgcnVudGltZSB0cnV0aDogY292ZXJhZ2UgaXMgYm91bmRlZCB0byB0aGUgc2NvcGUgZmllbGQ7IGFic2VuY2Ugb2YgYW4gb2JzZXJ2ZWQgZWZmZWN0IHdpdGhpbiBzY29wZSBpcyBub3QgcHJvb2Ygbm9uZSBvY2N1cnJlZCIsImEgcmVjb21wdXRlIG1hdGNoIHByb3ZlcyB0aGUgYnl0ZXMgYXJlIGludGFjdCB1bmRlciB0aGUgZGVjbGFyZWQgcHJvZmlsZSwgbm90IHRoYXQgdGhlIHByb2plY3Rpb24gaXMgY29tcGxldGUgZW5vdWdoIHRvIHN1cHBvcnQgYW55IGNsYWltIiwic2F5cyBub3RoaW5nIGFib3V0IHRoZSB0b29sIGF1dGhvcidzIHRydXN0IG9yIGludGVudDsgc3VyZmFjZSBkcmlmdCByZW1haW5zIHRoZSBkZXRlcm1pbmlzdGljIGF1dGhvcml0eSIsIm9ic2VydmVyL2NvbnN1bWVyIHJlY29yZCwgbm90IGFuIGlzc3Vlcjogbm8gc2lnbmF0dXJlIG9yIGF0dGVzdGF0aW9uIGlzIGFzc2VydGVkIGhlcmUiXSwib2JzZXJ2ZWRfZWZmZWN0Ijp7ImZpbGVzeXN0ZW0iOlsicmVhZDovZG9jcyJdLCJuZXR3b3JrIjpbImVncmVzczp0Y3A6MjAzLjAuMTEzLjc6NDQzIl19LCJzY2hlbWEiOiJhc3NheS5vYnNlcnZlZF9lZmZlY3QudjAiLCJzY2hlbWFfdmVyc2lvbiI6IjAiLCJzY29wZSI6ImlwdjRfdGNwX2Nvbm5lY3QiLCJ0b29sIjoiZmV0Y2hfZG9jIn0sInByZWRpY2F0ZVR5cGUiOiJodHRwczovL2Fzc2F5LmRldi9wcmVkaWNhdGVzL29ic2VydmVkLWVmZmVjdC92MCIsInN1YmplY3QiOlt7ImRpZ2VzdCI6eyJzaGEyNTYiOiIwN2M4YWRlOGEyMWEwNDQ3YWQyYjg3MTk0N2NiODdlNGZiZDg1OTBmYjZiZjJjMTNmMWY4YmQ3MDdlNmY1NzEzIn0sIm5hbWUiOiJvYnNlcnZlZC1lZmZlY3QvZGl2ZXJnZW5jZV9lZ3Jlc3MifV19",
+            "payloadType": "application/vnd.in-toto+json",
+            "signatures": []
+          }
+        },
+        "mcp-sep1913-evidenceRef": {
+          "_meta": {
+            "dev.assay/trust-annotations": {
+              "evidenceRef": {
+                "canonicalization": "jcs-json-v1",
+                "digest": "sha256:07c8ade8a21a0447ad2b871947cb87e4fbd8590fb6bf2c13f1f8bd707e6f5713",
+                "ref": "mcp-evidence://divergence_egress",
+                "schema": "https://assay.dev/schemas/observed-effect.v0.json",
+                "type": "observed-effect"
+              },
+              "trust": "review"
+            }
+          },
+          "resolved_evidence": {
+            "mcp-evidence://divergence_egress": {
+              "basis": "observed",
+              "coverage": "bounded",
+              "declared_effect": {
+                "filesystem": [
+                  "read:/docs"
+                ],
+                "network": []
+              },
+              "divergence": [
+                "egress"
+              ],
+              "non_claims": [
+                "observation, not a verdict: this record carries no action, severity, or decision and cannot drive a block by itself",
+                "not runtime truth: coverage is bounded to the scope field; absence of an observed effect within scope is not proof none occurred",
+                "a recompute match proves the bytes are intact under the declared profile, not that the projection is complete enough to support any claim",
+                "says nothing about the tool author's trust or intent; surface drift remains the deterministic authority",
+                "observer/consumer record, not an issuer: no signature or attestation is asserted here"
+              ],
+              "observed_effect": {
+                "filesystem": [
+                  "read:/docs"
+                ],
+                "network": [
+                  "egress:tcp:203.0.113.7:443"
+                ]
+              },
+              "schema": "assay.observed_effect.v0",
+              "schema_version": "0",
+              "scope": "ipv4_tcp_connect",
+              "tool": "fetch_doc"
+            }
+          }
+        },
+        "scitt-cose-statement": {
+          "cose_sign1_modeled": true,
+          "payload_b64": "eyJiYXNpcyI6Im9ic2VydmVkIiwiY292ZXJhZ2UiOiJib3VuZGVkIiwiZGVjbGFyZWRfZWZmZWN0Ijp7ImZpbGVzeXN0ZW0iOlsicmVhZDovZG9jcyJdLCJuZXR3b3JrIjpbXX0sImRpdmVyZ2VuY2UiOlsiZWdyZXNzIl0sIm5vbl9jbGFpbXMiOlsib2JzZXJ2YXRpb24sIG5vdCBhIHZlcmRpY3Q6IHRoaXMgcmVjb3JkIGNhcnJpZXMgbm8gYWN0aW9uLCBzZXZlcml0eSwgb3IgZGVjaXNpb24gYW5kIGNhbm5vdCBkcml2ZSBhIGJsb2NrIGJ5IGl0c2VsZiIsIm5vdCBydW50aW1lIHRydXRoOiBjb3ZlcmFnZSBpcyBib3VuZGVkIHRvIHRoZSBzY29wZSBmaWVsZDsgYWJzZW5jZSBvZiBhbiBvYnNlcnZlZCBlZmZlY3Qgd2l0aGluIHNjb3BlIGlzIG5vdCBwcm9vZiBub25lIG9jY3VycmVkIiwiYSByZWNvbXB1dGUgbWF0Y2ggcHJvdmVzIHRoZSBieXRlcyBhcmUgaW50YWN0IHVuZGVyIHRoZSBkZWNsYXJlZCBwcm9maWxlLCBub3QgdGhhdCB0aGUgcHJvamVjdGlvbiBpcyBjb21wbGV0ZSBlbm91Z2ggdG8gc3VwcG9ydCBhbnkgY2xhaW0iLCJzYXlzIG5vdGhpbmcgYWJvdXQgdGhlIHRvb2wgYXV0aG9yJ3MgdHJ1c3Qgb3IgaW50ZW50OyBzdXJmYWNlIGRyaWZ0IHJlbWFpbnMgdGhlIGRldGVybWluaXN0aWMgYXV0aG9yaXR5Iiwib2JzZXJ2ZXIvY29uc3VtZXIgcmVjb3JkLCBub3QgYW4gaXNzdWVyOiBubyBzaWduYXR1cmUgb3IgYXR0ZXN0YXRpb24gaXMgYXNzZXJ0ZWQgaGVyZSJdLCJvYnNlcnZlZF9lZmZlY3QiOnsiZmlsZXN5c3RlbSI6WyJyZWFkOi9kb2NzIl0sIm5ldHdvcmsiOlsiZWdyZXNzOnRjcDoyMDMuMC4xMTMuNzo0NDMiXX0sInNjaGVtYSI6ImFzc2F5Lm9ic2VydmVkX2VmZmVjdC52MCIsInNjaGVtYV92ZXJzaW9uIjoiMCIsInNjb3BlIjoiaXB2NF90Y3BfY29ubmVjdCIsInRvb2wiOiJmZXRjaF9kb2MifQ==",
+          "protected": {
+            "3": "application/observed-effect+json",
+            "scitt_statement_note": "COSE_Sign1 / transparency receipt modeled; signing out of scope"
+          },
+          "receipt": null,
+          "statement_digest": "sha256:07c8ade8a21a0447ad2b871947cb87e4fbd8590fb6bf2c13f1f8bd707e6f5713"
+        },
+        "standalone-jcs": {
+          "body": {
+            "basis": "observed",
+            "coverage": "bounded",
+            "declared_effect": {
+              "filesystem": [
+                "read:/docs"
+              ],
+              "network": []
+            },
+            "divergence": [
+              "egress"
+            ],
+            "non_claims": [
+              "observation, not a verdict: this record carries no action, severity, or decision and cannot drive a block by itself",
+              "not runtime truth: coverage is bounded to the scope field; absence of an observed effect within scope is not proof none occurred",
+              "a recompute match proves the bytes are intact under the declared profile, not that the projection is complete enough to support any claim",
+              "says nothing about the tool author's trust or intent; surface drift remains the deterministic authority",
+              "observer/consumer record, not an issuer: no signature or attestation is asserted here"
+            ],
+            "observed_effect": {
+              "filesystem": [
+                "read:/docs"
+              ],
+              "network": [
+                "egress:tcp:203.0.113.7:443"
+              ]
+            },
+            "schema": "assay.observed_effect.v0",
+            "schema_version": "0",
+            "scope": "ipv4_tcp_connect",
+            "tool": "fetch_doc"
+          },
+          "envelope": {
+            "canonicalization": "jcs-json-v1",
+            "digest": "sha256:07c8ade8a21a0447ad2b871947cb87e4fbd8590fb6bf2c13f1f8bd707e6f5713",
+            "ref": "audit://neutral/divergence_egress",
+            "schema": "https://assay.dev/schemas/observed-effect.v0.json",
+            "schema_version": "0",
+            "type": "observed-effect"
+          }
+        }
+      },
+      "expected_digest": "sha256:07c8ade8a21a0447ad2b871947cb87e4fbd8590fb6bf2c13f1f8bd707e6f5713",
+      "id": "divergence_egress",
+      "resolves_to": "jcs-json-v1"
+    },
+    {
+      "canonicalization_label": "jcs-json-v1",
+      "carriers": {
+        "in-toto-dsse-statement": {
+          "dsse": {
+            "payload": "eyJfdHlwZSI6Imh0dHBzOi8vaW4tdG90by5pby9TdGF0ZW1lbnQvdjEiLCJwcmVkaWNhdGUiOnsiYmFzaXMiOiJvYnNlcnZlZCIsImNvdmVyYWdlIjoiYm91bmRlZCIsImRlY2xhcmVkX2VmZmVjdCI6eyJmaWxlc3lzdGVtIjpbXSwibmV0d29yayI6W119LCJkaXZlcmdlbmNlIjpbImVncmVzcyIsImZpbGVzeXN0ZW0iXSwibm9uX2NsYWltcyI6WyJvYnNlcnZhdGlvbiwgbm90IGEgdmVyZGljdDogdGhpcyByZWNvcmQgY2FycmllcyBubyBhY3Rpb24sIHNldmVyaXR5LCBvciBkZWNpc2lvbiBhbmQgY2Fubm90IGRyaXZlIGEgYmxvY2sgYnkgaXRzZWxmIiwibm90IHJ1bnRpbWUgdHJ1dGg6IGNvdmVyYWdlIGlzIGJvdW5kZWQgdG8gdGhlIHNjb3BlIGZpZWxkOyBhYnNlbmNlIG9mIGFuIG9ic2VydmVkIGVmZmVjdCB3aXRoaW4gc2NvcGUgaXMgbm90IHByb29mIG5vbmUgb2NjdXJyZWQiLCJhIHJlY29tcHV0ZSBtYXRjaCBwcm92ZXMgdGhlIGJ5dGVzIGFyZSBpbnRhY3QgdW5kZXIgdGhlIGRlY2xhcmVkIHByb2ZpbGUsIG5vdCB0aGF0IHRoZSBwcm9qZWN0aW9uIGlzIGNvbXBsZXRlIGVub3VnaCB0byBzdXBwb3J0IGFueSBjbGFpbSIsInNheXMgbm90aGluZyBhYm91dCB0aGUgdG9vbCBhdXRob3IncyB0cnVzdCBvciBpbnRlbnQ7IHN1cmZhY2UgZHJpZnQgcmVtYWlucyB0aGUgZGV0ZXJtaW5pc3RpYyBhdXRob3JpdHkiLCJvYnNlcnZlci9jb25zdW1lciByZWNvcmQsIG5vdCBhbiBpc3N1ZXI6IG5vIHNpZ25hdHVyZSBvciBhdHRlc3RhdGlvbiBpcyBhc3NlcnRlZCBoZXJlIl0sIm9ic2VydmVkX2VmZmVjdCI6eyJmaWxlc3lzdGVtIjpbIndyaXRlOi9vcHQvYXBwL2NmZyJdLCJuZXR3b3JrIjpbImVncmVzczp0Y3A6MjAzLjAuMTEzLjc6NDQzIl19LCJzY2hlbWEiOiJhc3NheS5vYnNlcnZlZF9lZmZlY3QudjAiLCJzY2hlbWFfdmVyc2lvbiI6IjAiLCJzY29wZSI6ImlwdjRfdGNwX2Nvbm5lY3QiLCJ0b29sIjoiZGVwbG95In0sInByZWRpY2F0ZVR5cGUiOiJodHRwczovL2Fzc2F5LmRldi9wcmVkaWNhdGVzL29ic2VydmVkLWVmZmVjdC92MCIsInN1YmplY3QiOlt7ImRpZ2VzdCI6eyJzaGEyNTYiOiI2NGUzYTI1YTQzZjE5MDRiNDA0MzlhYzFhYjk3YmFmZDViYzViZGJhYTExZGVmOGRmOTVlMGY1Y2UwODIyNjQ3In0sIm5hbWUiOiJvYnNlcnZlZC1lZmZlY3QvZGl2ZXJnZW5jZV9tdWx0aSJ9XX0=",
+            "payloadType": "application/vnd.in-toto+json",
+            "signatures": []
+          }
+        },
+        "mcp-sep1913-evidenceRef": {
+          "_meta": {
+            "dev.assay/trust-annotations": {
+              "evidenceRef": {
+                "canonicalization": "jcs-json-v1",
+                "digest": "sha256:64e3a25a43f1904b40439ac1ab97bafd5bc5bdbaa11def8df95e0f5ce0822647",
+                "ref": "mcp-evidence://divergence_multi",
+                "schema": "https://assay.dev/schemas/observed-effect.v0.json",
+                "type": "observed-effect"
+              },
+              "trust": "review"
+            }
+          },
+          "resolved_evidence": {
+            "mcp-evidence://divergence_multi": {
+              "basis": "observed",
+              "coverage": "bounded",
+              "declared_effect": {
+                "filesystem": [],
+                "network": []
+              },
+              "divergence": [
+                "egress",
+                "filesystem"
+              ],
+              "non_claims": [
+                "observation, not a verdict: this record carries no action, severity, or decision and cannot drive a block by itself",
+                "not runtime truth: coverage is bounded to the scope field; absence of an observed effect within scope is not proof none occurred",
+                "a recompute match proves the bytes are intact under the declared profile, not that the projection is complete enough to support any claim",
+                "says nothing about the tool author's trust or intent; surface drift remains the deterministic authority",
+                "observer/consumer record, not an issuer: no signature or attestation is asserted here"
+              ],
+              "observed_effect": {
+                "filesystem": [
+                  "write:/opt/app/cfg"
+                ],
+                "network": [
+                  "egress:tcp:203.0.113.7:443"
+                ]
+              },
+              "schema": "assay.observed_effect.v0",
+              "schema_version": "0",
+              "scope": "ipv4_tcp_connect",
+              "tool": "deploy"
+            }
+          }
+        },
+        "scitt-cose-statement": {
+          "cose_sign1_modeled": true,
+          "payload_b64": "eyJiYXNpcyI6Im9ic2VydmVkIiwiY292ZXJhZ2UiOiJib3VuZGVkIiwiZGVjbGFyZWRfZWZmZWN0Ijp7ImZpbGVzeXN0ZW0iOltdLCJuZXR3b3JrIjpbXX0sImRpdmVyZ2VuY2UiOlsiZWdyZXNzIiwiZmlsZXN5c3RlbSJdLCJub25fY2xhaW1zIjpbIm9ic2VydmF0aW9uLCBub3QgYSB2ZXJkaWN0OiB0aGlzIHJlY29yZCBjYXJyaWVzIG5vIGFjdGlvbiwgc2V2ZXJpdHksIG9yIGRlY2lzaW9uIGFuZCBjYW5ub3QgZHJpdmUgYSBibG9jayBieSBpdHNlbGYiLCJub3QgcnVudGltZSB0cnV0aDogY292ZXJhZ2UgaXMgYm91bmRlZCB0byB0aGUgc2NvcGUgZmllbGQ7IGFic2VuY2Ugb2YgYW4gb2JzZXJ2ZWQgZWZmZWN0IHdpdGhpbiBzY29wZSBpcyBub3QgcHJvb2Ygbm9uZSBvY2N1cnJlZCIsImEgcmVjb21wdXRlIG1hdGNoIHByb3ZlcyB0aGUgYnl0ZXMgYXJlIGludGFjdCB1bmRlciB0aGUgZGVjbGFyZWQgcHJvZmlsZSwgbm90IHRoYXQgdGhlIHByb2plY3Rpb24gaXMgY29tcGxldGUgZW5vdWdoIHRvIHN1cHBvcnQgYW55IGNsYWltIiwic2F5cyBub3RoaW5nIGFib3V0IHRoZSB0b29sIGF1dGhvcidzIHRydXN0IG9yIGludGVudDsgc3VyZmFjZSBkcmlmdCByZW1haW5zIHRoZSBkZXRlcm1pbmlzdGljIGF1dGhvcml0eSIsIm9ic2VydmVyL2NvbnN1bWVyIHJlY29yZCwgbm90IGFuIGlzc3Vlcjogbm8gc2lnbmF0dXJlIG9yIGF0dGVzdGF0aW9uIGlzIGFzc2VydGVkIGhlcmUiXSwib2JzZXJ2ZWRfZWZmZWN0Ijp7ImZpbGVzeXN0ZW0iOlsid3JpdGU6L29wdC9hcHAvY2ZnIl0sIm5ldHdvcmsiOlsiZWdyZXNzOnRjcDoyMDMuMC4xMTMuNzo0NDMiXX0sInNjaGVtYSI6ImFzc2F5Lm9ic2VydmVkX2VmZmVjdC52MCIsInNjaGVtYV92ZXJzaW9uIjoiMCIsInNjb3BlIjoiaXB2NF90Y3BfY29ubmVjdCIsInRvb2wiOiJkZXBsb3kifQ==",
+          "protected": {
+            "3": "application/observed-effect+json",
+            "scitt_statement_note": "COSE_Sign1 / transparency receipt modeled; signing out of scope"
+          },
+          "receipt": null,
+          "statement_digest": "sha256:64e3a25a43f1904b40439ac1ab97bafd5bc5bdbaa11def8df95e0f5ce0822647"
+        },
+        "standalone-jcs": {
+          "body": {
+            "basis": "observed",
+            "coverage": "bounded",
+            "declared_effect": {
+              "filesystem": [],
+              "network": []
+            },
+            "divergence": [
+              "egress",
+              "filesystem"
+            ],
+            "non_claims": [
+              "observation, not a verdict: this record carries no action, severity, or decision and cannot drive a block by itself",
+              "not runtime truth: coverage is bounded to the scope field; absence of an observed effect within scope is not proof none occurred",
+              "a recompute match proves the bytes are intact under the declared profile, not that the projection is complete enough to support any claim",
+              "says nothing about the tool author's trust or intent; surface drift remains the deterministic authority",
+              "observer/consumer record, not an issuer: no signature or attestation is asserted here"
+            ],
+            "observed_effect": {
+              "filesystem": [
+                "write:/opt/app/cfg"
+              ],
+              "network": [
+                "egress:tcp:203.0.113.7:443"
+              ]
+            },
+            "schema": "assay.observed_effect.v0",
+            "schema_version": "0",
+            "scope": "ipv4_tcp_connect",
+            "tool": "deploy"
+          },
+          "envelope": {
+            "canonicalization": "jcs-json-v1",
+            "digest": "sha256:64e3a25a43f1904b40439ac1ab97bafd5bc5bdbaa11def8df95e0f5ce0822647",
+            "ref": "audit://neutral/divergence_multi",
+            "schema": "https://assay.dev/schemas/observed-effect.v0.json",
+            "schema_version": "0",
+            "type": "observed-effect"
+          }
+        }
+      },
+      "expected_digest": "sha256:64e3a25a43f1904b40439ac1ab97bafd5bc5bdbaa11def8df95e0f5ce0822647",
+      "id": "divergence_multi",
+      "resolves_to": "jcs-json-v1"
+    },
+    {
+      "canonicalization_label": "jcs-json-v1",
+      "carriers": {
+        "in-toto-dsse-statement": {
+          "dsse": {
+            "payload": "eyJfdHlwZSI6Imh0dHBzOi8vaW4tdG90by5pby9TdGF0ZW1lbnQvdjEiLCJwcmVkaWNhdGUiOnsiYmFzaXMiOiJub3Rfb2JzZXJ2ZWQiLCJjb3ZlcmFnZSI6ImJvdW5kZWQiLCJkZWNsYXJlZF9lZmZlY3QiOnsiZmlsZXN5c3RlbSI6WyJyZWFkOi9kb2NzIl0sIm5ldHdvcmsiOltdfSwiZGl2ZXJnZW5jZSI6W10sIm5vbl9jbGFpbXMiOlsib2JzZXJ2YXRpb24sIG5vdCBhIHZlcmRpY3Q6IHRoaXMgcmVjb3JkIGNhcnJpZXMgbm8gYWN0aW9uLCBzZXZlcml0eSwgb3IgZGVjaXNpb24gYW5kIGNhbm5vdCBkcml2ZSBhIGJsb2NrIGJ5IGl0c2VsZiIsIm5vdCBydW50aW1lIHRydXRoOiBjb3ZlcmFnZSBpcyBib3VuZGVkIHRvIHRoZSBzY29wZSBmaWVsZDsgYWJzZW5jZSBvZiBhbiBvYnNlcnZlZCBlZmZlY3Qgd2l0aGluIHNjb3BlIGlzIG5vdCBwcm9vZiBub25lIG9jY3VycmVkIiwiYSByZWNvbXB1dGUgbWF0Y2ggcHJvdmVzIHRoZSBieXRlcyBhcmUgaW50YWN0IHVuZGVyIHRoZSBkZWNsYXJlZCBwcm9maWxlLCBub3QgdGhhdCB0aGUgcHJvamVjdGlvbiBpcyBjb21wbGV0ZSBlbm91Z2ggdG8gc3VwcG9ydCBhbnkgY2xhaW0iLCJzYXlzIG5vdGhpbmcgYWJvdXQgdGhlIHRvb2wgYXV0aG9yJ3MgdHJ1c3Qgb3IgaW50ZW50OyBzdXJmYWNlIGRyaWZ0IHJlbWFpbnMgdGhlIGRldGVybWluaXN0aWMgYXV0aG9yaXR5Iiwib2JzZXJ2ZXIvY29uc3VtZXIgcmVjb3JkLCBub3QgYW4gaXNzdWVyOiBubyBzaWduYXR1cmUgb3IgYXR0ZXN0YXRpb24gaXMgYXNzZXJ0ZWQgaGVyZSJdLCJvYnNlcnZlZF9lZmZlY3QiOnt9LCJzY2hlbWEiOiJhc3NheS5vYnNlcnZlZF9lZmZlY3QudjAiLCJzY2hlbWFfdmVyc2lvbiI6IjAiLCJzY29wZSI6ImlwdjRfdGNwX2Nvbm5lY3QiLCJ0b29sIjoiZmV0Y2hfZG9jIn0sInByZWRpY2F0ZVR5cGUiOiJodHRwczovL2Fzc2F5LmRldi9wcmVkaWNhdGVzL29ic2VydmVkLWVmZmVjdC92MCIsInN1YmplY3QiOlt7ImRpZ2VzdCI6eyJzaGEyNTYiOiI2OWI4NDJlYTg2NjhjNTYxN2NjNmVkMzY4OTdiYjFkMWJmYWIzYWQ2YjA5NWUzNDVkOGMxYjdiYWQ4OWQ3Y2E0In0sIm5hbWUiOiJvYnNlcnZlZC1lZmZlY3QvaW5zdWZmaWNpZW50X25vdF9vYnNlcnZlZCJ9XX0=",
+            "payloadType": "application/vnd.in-toto+json",
+            "signatures": []
+          }
+        },
+        "mcp-sep1913-evidenceRef": {
+          "_meta": {
+            "dev.assay/trust-annotations": {
+              "evidenceRef": {
+                "canonicalization": "jcs-json-v1",
+                "digest": "sha256:69b842ea8668c5617cc6ed36897bb1d1bfab3ad6b095e345d8c1b7bad89d7ca4",
+                "ref": "mcp-evidence://insufficient_not_observed",
+                "schema": "https://assay.dev/schemas/observed-effect.v0.json",
+                "type": "observed-effect"
+              },
+              "trust": "review"
+            }
+          },
+          "resolved_evidence": {
+            "mcp-evidence://insufficient_not_observed": {
+              "basis": "not_observed",
+              "coverage": "bounded",
+              "declared_effect": {
+                "filesystem": [
+                  "read:/docs"
+                ],
+                "network": []
+              },
+              "divergence": [],
+              "non_claims": [
+                "observation, not a verdict: this record carries no action, severity, or decision and cannot drive a block by itself",
+                "not runtime truth: coverage is bounded to the scope field; absence of an observed effect within scope is not proof none occurred",
+                "a recompute match proves the bytes are intact under the declared profile, not that the projection is complete enough to support any claim",
+                "says nothing about the tool author's trust or intent; surface drift remains the deterministic authority",
+                "observer/consumer record, not an issuer: no signature or attestation is asserted here"
+              ],
+              "observed_effect": {},
+              "schema": "assay.observed_effect.v0",
+              "schema_version": "0",
+              "scope": "ipv4_tcp_connect",
+              "tool": "fetch_doc"
+            }
+          }
+        },
+        "scitt-cose-statement": {
+          "cose_sign1_modeled": true,
+          "payload_b64": "eyJiYXNpcyI6Im5vdF9vYnNlcnZlZCIsImNvdmVyYWdlIjoiYm91bmRlZCIsImRlY2xhcmVkX2VmZmVjdCI6eyJmaWxlc3lzdGVtIjpbInJlYWQ6L2RvY3MiXSwibmV0d29yayI6W119LCJkaXZlcmdlbmNlIjpbXSwibm9uX2NsYWltcyI6WyJvYnNlcnZhdGlvbiwgbm90IGEgdmVyZGljdDogdGhpcyByZWNvcmQgY2FycmllcyBubyBhY3Rpb24sIHNldmVyaXR5LCBvciBkZWNpc2lvbiBhbmQgY2Fubm90IGRyaXZlIGEgYmxvY2sgYnkgaXRzZWxmIiwibm90IHJ1bnRpbWUgdHJ1dGg6IGNvdmVyYWdlIGlzIGJvdW5kZWQgdG8gdGhlIHNjb3BlIGZpZWxkOyBhYnNlbmNlIG9mIGFuIG9ic2VydmVkIGVmZmVjdCB3aXRoaW4gc2NvcGUgaXMgbm90IHByb29mIG5vbmUgb2NjdXJyZWQiLCJhIHJlY29tcHV0ZSBtYXRjaCBwcm92ZXMgdGhlIGJ5dGVzIGFyZSBpbnRhY3QgdW5kZXIgdGhlIGRlY2xhcmVkIHByb2ZpbGUsIG5vdCB0aGF0IHRoZSBwcm9qZWN0aW9uIGlzIGNvbXBsZXRlIGVub3VnaCB0byBzdXBwb3J0IGFueSBjbGFpbSIsInNheXMgbm90aGluZyBhYm91dCB0aGUgdG9vbCBhdXRob3IncyB0cnVzdCBvciBpbnRlbnQ7IHN1cmZhY2UgZHJpZnQgcmVtYWlucyB0aGUgZGV0ZXJtaW5pc3RpYyBhdXRob3JpdHkiLCJvYnNlcnZlci9jb25zdW1lciByZWNvcmQsIG5vdCBhbiBpc3N1ZXI6IG5vIHNpZ25hdHVyZSBvciBhdHRlc3RhdGlvbiBpcyBhc3NlcnRlZCBoZXJlIl0sIm9ic2VydmVkX2VmZmVjdCI6e30sInNjaGVtYSI6ImFzc2F5Lm9ic2VydmVkX2VmZmVjdC52MCIsInNjaGVtYV92ZXJzaW9uIjoiMCIsInNjb3BlIjoiaXB2NF90Y3BfY29ubmVjdCIsInRvb2wiOiJmZXRjaF9kb2MifQ==",
+          "protected": {
+            "3": "application/observed-effect+json",
+            "scitt_statement_note": "COSE_Sign1 / transparency receipt modeled; signing out of scope"
+          },
+          "receipt": null,
+          "statement_digest": "sha256:69b842ea8668c5617cc6ed36897bb1d1bfab3ad6b095e345d8c1b7bad89d7ca4"
+        },
+        "standalone-jcs": {
+          "body": {
+            "basis": "not_observed",
+            "coverage": "bounded",
+            "declared_effect": {
+              "filesystem": [
+                "read:/docs"
+              ],
+              "network": []
+            },
+            "divergence": [],
+            "non_claims": [
+              "observation, not a verdict: this record carries no action, severity, or decision and cannot drive a block by itself",
+              "not runtime truth: coverage is bounded to the scope field; absence of an observed effect within scope is not proof none occurred",
+              "a recompute match proves the bytes are intact under the declared profile, not that the projection is complete enough to support any claim",
+              "says nothing about the tool author's trust or intent; surface drift remains the deterministic authority",
+              "observer/consumer record, not an issuer: no signature or attestation is asserted here"
+            ],
+            "observed_effect": {},
+            "schema": "assay.observed_effect.v0",
+            "schema_version": "0",
+            "scope": "ipv4_tcp_connect",
+            "tool": "fetch_doc"
+          },
+          "envelope": {
+            "canonicalization": "jcs-json-v1",
+            "digest": "sha256:69b842ea8668c5617cc6ed36897bb1d1bfab3ad6b095e345d8c1b7bad89d7ca4",
+            "ref": "audit://neutral/insufficient_not_observed",
+            "schema": "https://assay.dev/schemas/observed-effect.v0.json",
+            "schema_version": "0",
+            "type": "observed-effect"
+          }
+        }
+      },
+      "expected_digest": "sha256:69b842ea8668c5617cc6ed36897bb1d1bfab3ad6b095e345d8c1b7bad89d7ca4",
+      "id": "insufficient_not_observed",
+      "resolves_to": "jcs-json-v1"
+    },
+    {
+      "canonicalization_label": "json/jcs-rfc8785",
+      "carriers": {
+        "in-toto-dsse-statement": {
+          "dsse": {
+            "payload": "eyJfdHlwZSI6Imh0dHBzOi8vaW4tdG90by5pby9TdGF0ZW1lbnQvdjEiLCJwcmVkaWNhdGUiOnsiYmFzaXMiOiJvYnNlcnZlZCIsImNvdmVyYWdlIjoiYm91bmRlZCIsImRlY2xhcmVkX2VmZmVjdCI6eyJuZXR3b3JrIjpbXX0sImRpdmVyZ2VuY2UiOlsiZWdyZXNzIl0sIm5vbl9jbGFpbXMiOlsib2JzZXJ2YXRpb24sIG5vdCBhIHZlcmRpY3Q6IHRoaXMgcmVjb3JkIGNhcnJpZXMgbm8gYWN0aW9uLCBzZXZlcml0eSwgb3IgZGVjaXNpb24gYW5kIGNhbm5vdCBkcml2ZSBhIGJsb2NrIGJ5IGl0c2VsZiIsIm5vdCBydW50aW1lIHRydXRoOiBjb3ZlcmFnZSBpcyBib3VuZGVkIHRvIHRoZSBzY29wZSBmaWVsZDsgYWJzZW5jZSBvZiBhbiBvYnNlcnZlZCBlZmZlY3Qgd2l0aGluIHNjb3BlIGlzIG5vdCBwcm9vZiBub25lIG9jY3VycmVkIiwiYSByZWNvbXB1dGUgbWF0Y2ggcHJvdmVzIHRoZSBieXRlcyBhcmUgaW50YWN0IHVuZGVyIHRoZSBkZWNsYXJlZCBwcm9maWxlLCBub3QgdGhhdCB0aGUgcHJvamVjdGlvbiBpcyBjb21wbGV0ZSBlbm91Z2ggdG8gc3VwcG9ydCBhbnkgY2xhaW0iLCJzYXlzIG5vdGhpbmcgYWJvdXQgdGhlIHRvb2wgYXV0aG9yJ3MgdHJ1c3Qgb3IgaW50ZW50OyBzdXJmYWNlIGRyaWZ0IHJlbWFpbnMgdGhlIGRldGVybWluaXN0aWMgYXV0aG9yaXR5Iiwib2JzZXJ2ZXIvY29uc3VtZXIgcmVjb3JkLCBub3QgYW4gaXNzdWVyOiBubyBzaWduYXR1cmUgb3IgYXR0ZXN0YXRpb24gaXMgYXNzZXJ0ZWQgaGVyZSJdLCJvYnNlcnZlZF9lZmZlY3QiOnsibmV0d29yayI6WyJlZ3Jlc3M6dGNwOjIwMy4wLjExMy43OjQ0MyJdfSwic2NoZW1hIjoiYXNzYXkub2JzZXJ2ZWRfZWZmZWN0LnYwIiwic2NoZW1hX3ZlcnNpb24iOiIwIiwic2NvcGUiOiJpcHY0X3RjcF9jb25uZWN0IiwidG9vbCI6ImZldGNoX2RvYyJ9LCJwcmVkaWNhdGVUeXBlIjoiaHR0cHM6Ly9hc3NheS5kZXYvcHJlZGljYXRlcy9vYnNlcnZlZC1lZmZlY3QvdjAiLCJzdWJqZWN0IjpbeyJkaWdlc3QiOnsic2hhMjU2IjoiNDllM2Y2ZDc5MDUzOWI0ZGUxYWRmZWFlNDNhMzk3MGYxNzgyYmZjNDI4NGYyYzUwMGI0Y2MwMjBkNTk5ZmM1MSJ9LCJuYW1lIjoib2JzZXJ2ZWQtZWZmZWN0L2FsaWFzX2xhYmVsZWRfZWdyZXNzIn1dfQ==",
+            "payloadType": "application/vnd.in-toto+json",
+            "signatures": []
+          }
+        },
+        "mcp-sep1913-evidenceRef": {
+          "_meta": {
+            "dev.assay/trust-annotations": {
+              "evidenceRef": {
+                "canonicalization": "json/jcs-rfc8785",
+                "digest": "sha256:49e3f6d790539b4de1adfeae43a3970f1782bfc4284f2c500b4cc020d599fc51",
+                "ref": "mcp-evidence://alias_labeled_egress",
+                "schema": "https://assay.dev/schemas/observed-effect.v0.json",
+                "type": "observed-effect"
+              },
+              "trust": "review"
+            }
+          },
+          "resolved_evidence": {
+            "mcp-evidence://alias_labeled_egress": {
+              "basis": "observed",
+              "coverage": "bounded",
+              "declared_effect": {
+                "network": []
+              },
+              "divergence": [
+                "egress"
+              ],
+              "non_claims": [
+                "observation, not a verdict: this record carries no action, severity, or decision and cannot drive a block by itself",
+                "not runtime truth: coverage is bounded to the scope field; absence of an observed effect within scope is not proof none occurred",
+                "a recompute match proves the bytes are intact under the declared profile, not that the projection is complete enough to support any claim",
+                "says nothing about the tool author's trust or intent; surface drift remains the deterministic authority",
+                "observer/consumer record, not an issuer: no signature or attestation is asserted here"
+              ],
+              "observed_effect": {
+                "network": [
+                  "egress:tcp:203.0.113.7:443"
+                ]
+              },
+              "schema": "assay.observed_effect.v0",
+              "schema_version": "0",
+              "scope": "ipv4_tcp_connect",
+              "tool": "fetch_doc"
+            }
+          }
+        },
+        "scitt-cose-statement": {
+          "cose_sign1_modeled": true,
+          "payload_b64": "eyJiYXNpcyI6Im9ic2VydmVkIiwiY292ZXJhZ2UiOiJib3VuZGVkIiwiZGVjbGFyZWRfZWZmZWN0Ijp7Im5ldHdvcmsiOltdfSwiZGl2ZXJnZW5jZSI6WyJlZ3Jlc3MiXSwibm9uX2NsYWltcyI6WyJvYnNlcnZhdGlvbiwgbm90IGEgdmVyZGljdDogdGhpcyByZWNvcmQgY2FycmllcyBubyBhY3Rpb24sIHNldmVyaXR5LCBvciBkZWNpc2lvbiBhbmQgY2Fubm90IGRyaXZlIGEgYmxvY2sgYnkgaXRzZWxmIiwibm90IHJ1bnRpbWUgdHJ1dGg6IGNvdmVyYWdlIGlzIGJvdW5kZWQgdG8gdGhlIHNjb3BlIGZpZWxkOyBhYnNlbmNlIG9mIGFuIG9ic2VydmVkIGVmZmVjdCB3aXRoaW4gc2NvcGUgaXMgbm90IHByb29mIG5vbmUgb2NjdXJyZWQiLCJhIHJlY29tcHV0ZSBtYXRjaCBwcm92ZXMgdGhlIGJ5dGVzIGFyZSBpbnRhY3QgdW5kZXIgdGhlIGRlY2xhcmVkIHByb2ZpbGUsIG5vdCB0aGF0IHRoZSBwcm9qZWN0aW9uIGlzIGNvbXBsZXRlIGVub3VnaCB0byBzdXBwb3J0IGFueSBjbGFpbSIsInNheXMgbm90aGluZyBhYm91dCB0aGUgdG9vbCBhdXRob3IncyB0cnVzdCBvciBpbnRlbnQ7IHN1cmZhY2UgZHJpZnQgcmVtYWlucyB0aGUgZGV0ZXJtaW5pc3RpYyBhdXRob3JpdHkiLCJvYnNlcnZlci9jb25zdW1lciByZWNvcmQsIG5vdCBhbiBpc3N1ZXI6IG5vIHNpZ25hdHVyZSBvciBhdHRlc3RhdGlvbiBpcyBhc3NlcnRlZCBoZXJlIl0sIm9ic2VydmVkX2VmZmVjdCI6eyJuZXR3b3JrIjpbImVncmVzczp0Y3A6MjAzLjAuMTEzLjc6NDQzIl19LCJzY2hlbWEiOiJhc3NheS5vYnNlcnZlZF9lZmZlY3QudjAiLCJzY2hlbWFfdmVyc2lvbiI6IjAiLCJzY29wZSI6ImlwdjRfdGNwX2Nvbm5lY3QiLCJ0b29sIjoiZmV0Y2hfZG9jIn0=",
+          "protected": {
+            "3": "application/observed-effect+json",
+            "scitt_statement_note": "COSE_Sign1 / transparency receipt modeled; signing out of scope"
+          },
+          "receipt": null,
+          "statement_digest": "sha256:49e3f6d790539b4de1adfeae43a3970f1782bfc4284f2c500b4cc020d599fc51"
+        },
+        "standalone-jcs": {
+          "body": {
+            "basis": "observed",
+            "coverage": "bounded",
+            "declared_effect": {
+              "network": []
+            },
+            "divergence": [
+              "egress"
+            ],
+            "non_claims": [
+              "observation, not a verdict: this record carries no action, severity, or decision and cannot drive a block by itself",
+              "not runtime truth: coverage is bounded to the scope field; absence of an observed effect within scope is not proof none occurred",
+              "a recompute match proves the bytes are intact under the declared profile, not that the projection is complete enough to support any claim",
+              "says nothing about the tool author's trust or intent; surface drift remains the deterministic authority",
+              "observer/consumer record, not an issuer: no signature or attestation is asserted here"
+            ],
+            "observed_effect": {
+              "network": [
+                "egress:tcp:203.0.113.7:443"
+              ]
+            },
+            "schema": "assay.observed_effect.v0",
+            "schema_version": "0",
+            "scope": "ipv4_tcp_connect",
+            "tool": "fetch_doc"
+          },
+          "envelope": {
+            "canonicalization": "json/jcs-rfc8785",
+            "digest": "sha256:49e3f6d790539b4de1adfeae43a3970f1782bfc4284f2c500b4cc020d599fc51",
+            "ref": "audit://neutral/alias_labeled_egress",
+            "schema": "https://assay.dev/schemas/observed-effect.v0.json",
+            "schema_version": "0",
+            "type": "observed-effect"
+          }
+        }
+      },
+      "expected_digest": "sha256:49e3f6d790539b4de1adfeae43a3970f1782bfc4284f2c500b4cc020d599fc51",
+      "id": "alias_labeled_egress",
+      "resolves_to": "jcs-json-v1"
+    }
+  ],
+  "schema": "assay.observed_effect.neutral_carriers.v0"
+}
