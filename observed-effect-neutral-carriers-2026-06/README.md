@@ -23,6 +23,21 @@ all four equal the frozen v0 digest. A record that four independent envelopes ca
 independent implementations recompute to the same address, is **by construction not any one
 envelope's profile**.
 
+### Canonicalization (reference implementation)
+
+`jcs-json-v1` is RFC 8785 (JSON Canonicalization Scheme). The reference canonicalizer here is a
+pure-standard-library RFC 8785 implementation: object keys ordered by their UTF-16 code units, JSON
+minimal string escaping, integers serialized as decimal. It covers the observed-effect v0 value space
+— strings, integers, booleans, null, and containers of those — and **fails closed** (raises) on
+non-integer floats, `NaN`, and `Infinity` rather than emit bytes that could diverge from RFC 8785. It
+is *not* the naive
+`json.dumps(sort_keys=True, ensure_ascii=False)` shortcut: that shortcut is byte-identical to RFC 8785
+only over a constrained domain (it diverges on `1.0` vs `1`, on UTF-16 key ordering for astral
+characters, and it does not reject `NaN`), so it is not a general RFC 8785 implementation. The
+divergence points and the constrained-domain equality are pinned in
+[`test_canonicalization_rfc8785.py`](test_canonicalization_rfc8785.py). The same canonicalizer is used
+in the drift-consumer and below-harness worked examples.
+
 ## Why it matters
 
 The neutral container in this space is being framed by various producers as something to *pin to* as

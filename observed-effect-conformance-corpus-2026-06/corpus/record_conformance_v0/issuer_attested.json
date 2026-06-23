@@ -1,0 +1,36 @@
+{
+  "body": {
+    "basis": "unknown",
+    "coverage": "bounded",
+    "declared_effect": {
+      "network": [
+        "egress:tcp:api.github.com:443"
+      ]
+    },
+    "divergence": [],
+    "non_claims": [
+      "observation, not a verdict: this record carries no action, severity, or decision",
+      "a recompute match proves the bytes are intact under the declared profile, not that coverage is complete enough to support any claim",
+      "not an issuer: no signature or attestation is asserted by the record itself",
+      "issuer-attested: this observation is reported by an upstream source and is not independently re-derived by this record"
+    ],
+    "observed_effect": {
+      "network": [
+        "egress:tcp:api.github.com:443"
+      ]
+    },
+    "schema": "assay.observed_effect.v0",
+    "schema_version": "0",
+    "scope": "ipv4_tcp_connect",
+    "tool": "fetch_doc"
+  },
+  "envelope": {
+    "canonicalization": "jcs-json-v1",
+    "digest": "sha256:d341506bc95270d3c4defc496b6e855d416d507964c14fbe597c7fc018cec801",
+    "ref": "audit://observed-effect/rec",
+    "schema": "assay.observed_effect.v0",
+    "type": "application/assay-observed-effect+json"
+  },
+  "id": "issuer_attested",
+  "kind": "incomplete"
+}

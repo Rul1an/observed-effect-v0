@@ -1,0 +1,46 @@
+{
+  "record_conformance_v0": {
+    "alias_label": {
+      "recompute": "recomputed",
+      "verdict": "match"
+    },
+    "coverage_absent": {
+      "recompute": "recomputed",
+      "verdict": "incomplete"
+    },
+    "divergence_observed": {
+      "recompute": "recomputed",
+      "verdict": "mismatch"
+    },
+    "issuer_attested": {
+      "recompute": "recomputed",
+      "verdict": "incomplete"
+    },
+    "ok_observed": {
+      "recompute": "recomputed",
+      "verdict": "match"
+    },
+    "tampered_body": {
+      "recompute": "mismatch",
+      "verdict": "invalid"
+    },
+    "unsupported_canonicalization": {
+      "recompute": "unsupported_canonicalization",
+      "verdict": "invalid"
+    }
+  },
+  "record_set_v0": {
+    "set_complete": {
+      "verdict": "sufficient"
+    },
+    "set_coverage_absent": {
+      "verdict": "incomplete"
+    },
+    "set_divergence": {
+      "verdict": "mismatch"
+    },
+    "set_unknown": {
+      "verdict": "incomplete"
+    }
+  }
+}

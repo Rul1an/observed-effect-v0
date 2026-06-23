@@ -1,0 +1,22 @@
+{
+  "corpusDigest": "sha256:a329ad40b61d18d8418e791e07092ead0dfd462c7ca6129a0a5366aea91ca1aa",
+  "files": {
+    "corpus/record_conformance_v0/alias_label.json": "sha256:04326bd3fe33e6f3e09df8aab5678e35fe64a083eb0c6f264589fa958b812f1c",
+    "corpus/record_conformance_v0/coverage_absent.json": "sha256:a4332757d97e24807e3ed090f02424cbf3b1c08fe952a47a2b31a906b08b83b3",
+    "corpus/record_conformance_v0/divergence_observed.json": "sha256:c8706afb0ea46b706db1fb8894facdec46ffbc96ca3e0acd57926fee6dc770ae",
+    "corpus/record_conformance_v0/issuer_attested.json": "sha256:2b64f3afef5d09774f03448e267f3d2bfe97ef7a24a7fcea3fe3a35ec36b1da2",
+    "corpus/record_conformance_v0/ok_observed.json": "sha256:d2e3ad0d83e3c908fccb0500f8551bf1372a2456a7770c858059ec05a8176440",
+    "corpus/record_conformance_v0/tampered_body.json": "sha256:4623bb796ee39c8440af6d6359e04db808307f16cd9dc8183e554ad97ba26f81",
+    "corpus/record_conformance_v0/unsupported_canonicalization.json": "sha256:cf3703f8624610d9159926673f5aefa6574efbaa0ef7cd557c517d8a807d087d",
+    "corpus/record_set_v0/set_complete.json": "sha256:71a7634614478b4f141865a482c8951f0f1bfaba7e166dac02f1c82f77541667",
+    "corpus/record_set_v0/set_coverage_absent.json": "sha256:eb4b41456dc80f04a12d1c03a2ff6bed3855b06d12bad6343160c1e14913403f",
+    "corpus/record_set_v0/set_divergence.json": "sha256:d3b50b336b9980a2ee79f49dc8d8683ad0eaafaab323bde8460d0726eea40dde",
+    "corpus/record_set_v0/set_unknown.json": "sha256:4b7441ad13f91bf99b50212d1348689aa71eeff4e6047565590d99bf89095cbc"
+  },
+  "profile": "jcs-json-v1",
+  "suites": [
+    "record_conformance_v0",
+    "record_set_v0"
+  ],
+  "version": "1.0.0"
+}

@@ -1,0 +1,31 @@
+{
+  "body": {
+    "basis": "not_observed",
+    "coverage": "bounded",
+    "declared_effect": {
+      "filesystem": [
+        "write:/var/out"
+      ]
+    },
+    "divergence": [],
+    "non_claims": [
+      "observation, not a verdict: this record carries no action, severity, or decision",
+      "a recompute match proves the bytes are intact under the declared profile, not that coverage is complete enough to support any claim",
+      "not an issuer: no signature or attestation is asserted by the record itself"
+    ],
+    "observed_effect": {},
+    "schema": "assay.observed_effect.v0",
+    "schema_version": "0",
+    "scope": "filesystem_writes",
+    "tool": "fetch_doc"
+  },
+  "envelope": {
+    "canonicalization": "jcs-json-v1",
+    "digest": "sha256:212f22b60d9f9fbaf2404333ebd3dd21a5cfa447e6808c9c50dddac193896da9",
+    "ref": "audit://observed-effect/rec",
+    "schema": "assay.observed_effect.v0",
+    "type": "application/assay-observed-effect+json"
+  },
+  "id": "coverage_absent",
+  "kind": "incomplete"
+}

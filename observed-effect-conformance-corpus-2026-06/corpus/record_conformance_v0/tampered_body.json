@@ -1,0 +1,35 @@
+{
+  "body": {
+    "basis": "observed",
+    "coverage": "bounded",
+    "declared_effect": {
+      "network": [
+        "egress:tcp:api.github.com:443"
+      ]
+    },
+    "divergence": [],
+    "non_claims": [
+      "observation, not a verdict: this record carries no action, severity, or decision",
+      "a recompute match proves the bytes are intact under the declared profile, not that coverage is complete enough to support any claim",
+      "not an issuer: no signature or attestation is asserted by the record itself"
+    ],
+    "observed_effect": {
+      "network": [
+        "egress:tcp:evil.example:443"
+      ]
+    },
+    "schema": "assay.observed_effect.v0",
+    "schema_version": "0",
+    "scope": "ipv4_tcp_connect",
+    "tool": "fetch_tampered"
+  },
+  "envelope": {
+    "canonicalization": "jcs-json-v1",
+    "digest": "sha256:621c341dc0db3c0899d2b514621556aad605b75d5f7ad2e1e0207995d86a78d6",
+    "ref": "audit://observed-effect/rec",
+    "schema": "assay.observed_effect.v0",
+    "type": "application/assay-observed-effect+json"
+  },
+  "id": "tampered_body",
+  "kind": "invalid"
+}

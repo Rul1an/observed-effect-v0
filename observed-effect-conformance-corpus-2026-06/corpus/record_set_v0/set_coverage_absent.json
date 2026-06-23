@@ -1,0 +1,72 @@
+{
+  "boundary": "chain:agent-run-7a1d",
+  "id": "set_coverage_absent",
+  "records": [
+    {
+      "body": {
+        "basis": "observed",
+        "coverage": "bounded",
+        "declared_effect": {
+          "network": [
+            "egress:tcp:api.github.com:443"
+          ]
+        },
+        "divergence": [],
+        "non_claims": [
+          "observation, not a verdict: this record carries no action, severity, or decision",
+          "a recompute match proves the bytes are intact under the declared profile, not that coverage is complete enough to support any claim",
+          "not an issuer: no signature or attestation is asserted by the record itself"
+        ],
+        "observed_effect": {
+          "network": [
+            "egress:tcp:api.github.com:443"
+          ]
+        },
+        "schema": "assay.observed_effect.v0",
+        "schema_version": "0",
+        "scope": "ipv4_tcp_connect",
+        "tool": "fetch_doc"
+      },
+      "envelope": {
+        "canonicalization": "jcs-json-v1",
+        "digest": "sha256:a2c7f333389999ee0bc73ec80e4eadc5df8b953373d3cfbd504a2ac8b18cc7b5",
+        "ref": "audit://observed-effect/rec",
+        "schema": "assay.observed_effect.v0",
+        "type": "application/assay-observed-effect+json"
+      }
+    },
+    {
+      "body": {
+        "basis": "not_observed",
+        "coverage": "bounded",
+        "declared_effect": {
+          "filesystem": [
+            "write:/var/out"
+          ]
+        },
+        "divergence": [],
+        "non_claims": [
+          "observation, not a verdict: this record carries no action, severity, or decision",
+          "a recompute match proves the bytes are intact under the declared profile, not that coverage is complete enough to support any claim",
+          "not an issuer: no signature or attestation is asserted by the record itself"
+        ],
+        "observed_effect": {},
+        "schema": "assay.observed_effect.v0",
+        "schema_version": "0",
+        "scope": "filesystem_writes",
+        "tool": "write_out"
+      },
+      "envelope": {
+        "canonicalization": "jcs-json-v1",
+        "digest": "sha256:78113145a08e8576823a8258186c243039964dd57a203ea8bc36d6ef4e43e417",
+        "ref": "audit://observed-effect/rec",
+        "schema": "assay.observed_effect.v0",
+        "type": "application/assay-observed-effect+json"
+      }
+    }
+  ],
+  "required_channels": [
+    "network",
+    "filesystem"
+  ]
+}

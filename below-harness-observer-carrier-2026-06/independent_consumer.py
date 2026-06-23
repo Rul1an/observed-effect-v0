@@ -36,10 +36,63 @@ def _path(arg: str) -> str:
     return full
 
 
+def _rfc8785_string(s: str) -> str:
+    out = ['"']
+    for ch in s:
+        c = ord(ch)
+        if ch == '"':
+            out.append('\\"')
+        elif ch == '\\':
+            out.append('\\\\')
+        elif ch == '\b':
+            out.append('\\b')
+        elif ch == '\t':
+            out.append('\\t')
+        elif ch == '\n':
+            out.append('\\n')
+        elif ch == '\f':
+            out.append('\\f')
+        elif ch == '\r':
+            out.append('\\r')
+        elif c < 0x20:
+            out.append('\\u%04x' % c)
+        else:
+            out.append(ch)
+    out.append('"')
+    return ''.join(out)
+
+
+def _rfc8785(o) -> str:
+    # RFC 8785 JSON Canonicalization Scheme. Object keys are ordered by their UTF-16 code
+    # units (which differs from Unicode code-point order on astral characters). Non-integer
+    # floats, NaN, and Infinity are refused rather than risk bytes that diverge from RFC 8785;
+    # the observed-effect v0 value space is strings, integers, booleans, null, and containers.
+    if o is True:
+        return "true"
+    if o is False:
+        return "false"
+    if o is None:
+        return "null"
+    if isinstance(o, str):
+        return _rfc8785_string(o)
+    if isinstance(o, int):
+        return str(o)
+    if isinstance(o, float):
+        if o != o or o in (float("inf"), float("-inf")):
+            raise ValueError("RFC 8785 rejects NaN and Infinity")
+        if o.is_integer():
+            return str(int(o))
+        raise ValueError("jcs-json-v1 reference canonicalizer does not serialize non-integer numbers")
+    if isinstance(o, list):
+        return "[" + ",".join(_rfc8785(x) for x in o) + "]"
+    if isinstance(o, dict):
+        items = sorted(o.items(), key=lambda kv: kv[0].encode("utf-16-be"))
+        return "{" + ",".join(_rfc8785_string(k) + ":" + _rfc8785(v) for k, v in items) + "}"
+    raise TypeError("value of type %s is not JSON-serializable for JCS" % type(o).__name__)
+
+
 def addr(record) -> str:
-    return "sha256:" + hashlib.sha256(
-        json.dumps(record, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
-    ).hexdigest()
+    return "sha256:" + hashlib.sha256(_rfc8785(record).encode("utf-8")).hexdigest()
 
 
 def verdict(record, required) -> dict:

@@ -1,0 +1,76 @@
+{
+  "boundary": "chain:agent-run-7a1d",
+  "id": "set_divergence",
+  "records": [
+    {
+      "body": {
+        "basis": "observed",
+        "coverage": "bounded",
+        "declared_effect": {
+          "network": []
+        },
+        "divergence": [
+          "egress"
+        ],
+        "non_claims": [
+          "observation, not a verdict: this record carries no action, severity, or decision",
+          "a recompute match proves the bytes are intact under the declared profile, not that coverage is complete enough to support any claim",
+          "not an issuer: no signature or attestation is asserted by the record itself"
+        ],
+        "observed_effect": {
+          "network": [
+            "egress:tcp:203.0.113.7:443"
+          ]
+        },
+        "schema": "assay.observed_effect.v0",
+        "schema_version": "0",
+        "scope": "ipv4_tcp_connect",
+        "tool": "fetch_doc"
+      },
+      "envelope": {
+        "canonicalization": "jcs-json-v1",
+        "digest": "sha256:2d7d414b4c350d0a3fb9bc05a5815b56ff135f42b1ca40595e4c8c91164780c1",
+        "ref": "audit://observed-effect/rec",
+        "schema": "assay.observed_effect.v0",
+        "type": "application/assay-observed-effect+json"
+      }
+    },
+    {
+      "body": {
+        "basis": "observed",
+        "coverage": "bounded",
+        "declared_effect": {
+          "filesystem": [
+            "write:/var/out"
+          ]
+        },
+        "divergence": [],
+        "non_claims": [
+          "observation, not a verdict: this record carries no action, severity, or decision",
+          "a recompute match proves the bytes are intact under the declared profile, not that coverage is complete enough to support any claim",
+          "not an issuer: no signature or attestation is asserted by the record itself"
+        ],
+        "observed_effect": {
+          "filesystem": [
+            "write:/var/out"
+          ]
+        },
+        "schema": "assay.observed_effect.v0",
+        "schema_version": "0",
+        "scope": "filesystem_writes",
+        "tool": "write_out"
+      },
+      "envelope": {
+        "canonicalization": "jcs-json-v1",
+        "digest": "sha256:bab367a60a35e71e2f3c633cf8fd9443ffad8187007667495d4902a4805814e4",
+        "ref": "audit://observed-effect/rec",
+        "schema": "assay.observed_effect.v0",
+        "type": "application/assay-observed-effect+json"
+      }
+    }
+  ],
+  "required_channels": [
+    "network",
+    "filesystem"
+  ]
+}

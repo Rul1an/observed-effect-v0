@@ -1,0 +1,31 @@
+{
+  "body": {
+    "basis": "observed",
+    "coverage": "bounded",
+    "declared_effect": {
+      "network": []
+    },
+    "divergence": [],
+    "non_claims": [
+      "observation, not a verdict: this record carries no action, severity, or decision",
+      "a recompute match proves the bytes are intact under the declared profile, not that coverage is complete enough to support any claim",
+      "not an issuer: no signature or attestation is asserted by the record itself"
+    ],
+    "observed_effect": {
+      "network": []
+    },
+    "schema": "assay.observed_effect.v0",
+    "schema_version": "0",
+    "scope": "ipv4_tcp_connect",
+    "tool": "fetch_unsupported"
+  },
+  "envelope": {
+    "canonicalization": "jcs-json-v2-unimplemented",
+    "digest": "sha256:62e2021fb9667c8cb1b7c2e9fe5903fd7d87c2ba1eb0fa9d59bc966d3e47da75",
+    "ref": "audit://observed-effect/rec",
+    "schema": "assay.observed_effect.v0",
+    "type": "application/assay-observed-effect+json"
+  },
+  "id": "unsupported_canonicalization",
+  "kind": "invalid"
+}
