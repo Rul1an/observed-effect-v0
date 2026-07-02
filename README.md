@@ -77,3 +77,9 @@ To run tests:
 ```sh
 python -m pytest below-harness-observer-carrier-2026-06 observed-effect-drift-consumer-2026-06 observed-effect-neutral-carriers-2026-06
 ```
+
+## Related
+
+- [Assay](https://github.com/Rul1an/assay) produces and verifies evidence bundles at the MCP tool-call boundary; these records compose with that layer.
+- [gateway-evidence-replay](https://github.com/Rul1an/gateway-evidence-replay) replays gateway-path evidence offline to a bounded verdict.
+- [RGE-Bench](https://github.com/rge-bench/rge-bench) is a neutral conformance kit whose axes can be read against this record format (among others).
