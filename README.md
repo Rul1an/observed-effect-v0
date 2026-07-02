@@ -10,13 +10,59 @@ The examples are bounded evidence-contract artifacts. They do not claim runtime 
 maliciousness detection, safety, compliance, or runtime enforcement. The external verdict vocabulary is
 `match | mismatch | incomplete | invalid`.
 
+## Source class and claim ceiling
+
+An observed-effect record is independently issued: the observer that emits it is not the component whose
+behaviour it describes. That places it in a different source class than a self-report, or a record signed
+by the party that made the decision it records. The class is part of the contract, because it bounds what
+a verifier may conclude.
+
+Recomputing a digest confirms the bytes are intact under the declared canonicalization. It does not raise
+the record's vantage. Recomputing a self-issued record confirms what the issuer recorded, not what
+occurred; the same recompute over an independently observed record supports a stronger conclusion because
+the vantage is stronger, not because the hash is. Signing, hash-chaining, and time-anchoring raise
+tamper-evidence, never vantage.
+
+These records are correspondingly not an envelope for other formats to profile under, and they do not
+conform to any vendor's envelope. The same frozen record travels in four carriers below and recomputes to
+one content address in each; any carrier that declares its canonicalization beside its digest can hold
+it. What the record contributes is the observation and its explicit limits (the `non_claims` ride inside
+the digest), nothing more.
+
 ## Composing with MCP
 
-The neutral-carriers example carries the record in an MCP reference slot, the shape being worked out in
-[MCP SEP-1913 (Trust and Sensitivity Annotations)](https://github.com/modelcontextprotocol/modelcontextprotocol/pull/1913):
-a small annotation rides the protocol and points at the evidence behind a `{digest, canonicalization,
-schema, ref}` slot. The record resolves there by digest, the same way it resolves under in-toto and
-SCITT. It is not part of, nor endorsed by, the SEP — it just composes with a neutral reference shape.
+The neutral-carriers example carries the record in an MCP reference slot. Since late June 2026 that shape
+is specified in the Tool Annotations extension draft
+([experimental-ext-tool-annotations](https://github.com/modelcontextprotocol/experimental-ext-tool-annotations),
+`specification/draft/trust-annotations.mdx`, merged 2026-06-26): an `evidenceRef` whose
+`type`/`digest`/`canonicalization` triple is the minimum a client needs to re-derive the referenced
+record locally, with `cbor/rfc8949` and `jcs/rfc8785` both valid and neither the default.
+
+A worked pointer to the frozen record in this export, using the merged field set:
+
+```jsonc
+{
+  "_meta": {
+    "io.modelcontextprotocol/trust-annotations": {
+      "evidenceRef": {
+        "type": "observed-effect",
+        "digest": "sha256:c2a9723ea19504aad6f8336ccbac9d9e434d6246064d404ed8e741e1930c789c",
+        "canonicalization": "jcs/rfc8785",
+        "schema": "https://assay.dev/schemas/observed-effect.v0.json",
+        "ref": "audit://observed-effect/match_agreement"
+      }
+    }
+  }
+}
+```
+
+A client that resolves the record behind this pointer can recompute the address from the bytes alone with
+the stdlib consumer in `observed-effect-drift-consumer-2026-06/`, and should read the record's own
+`non_claims` before concluding anything. The carrier example in
+`observed-effect-neutral-carriers-2026-06/` predates the merged draft and uses an equivalent earlier
+canonicalization label; the recompute is label-independent, which that example's alias record
+demonstrates. The record is not part of, nor endorsed by, the extension. It composes with the reference
+shape, the same way it resolves under in-toto and SCITT.
 
 To verify deterministic goldens:
 
