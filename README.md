@@ -78,6 +78,21 @@ To run tests:
 python -m pytest below-harness-observer-carrier-2026-06 observed-effect-drift-consumer-2026-06 observed-effect-neutral-carriers-2026-06
 ```
 
+## Someone other than the author has run these
+
+In June 2026, Syed Maaz Ahmed ([@MaazAhmed47](https://github.com/MaazAhmed47)), an external
+implementer, ran all three examples and then tried to break two of the five false-green cases above:
+*absence is not clean* and *the producer cannot grade its own coverage*. The documented behaviour and
+both guards held under those tests.
+
+Recorded because the section above claims these records are independently issued, and until now the
+only person on record as having executed them was their author. That is a weaker position than the
+text implies, and the gap was invisible rather than argued.
+
+It is not an audit and not an endorsement, and it is not offered as either. What it establishes is
+narrow and worth stating exactly: on the vectors in this export, at that time, the two guards
+withstood an outside attempt to defeat them. Cited with permission.
+
 ## Related
 
 - [Assay](https://github.com/Rul1an/assay) produces and verifies evidence bundles at the MCP tool-call boundary; these records compose with that layer.
