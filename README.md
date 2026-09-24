@@ -23,6 +23,13 @@ occurred; the same recompute over an independently observed record supports a st
 the vantage is stronger, not because the hash is. Signing, hash-chaining, and time-anchoring raise
 tamper-evidence, never vantage.
 
+The record does not establish its own issuer. Nothing in it tells an observer's record apart from one
+the subject wrote in the same shape, so `basis: observed` is the writer's statement, and the verdict a
+consumer derives from it is only as independent as the writer. Which class a record belongs to is fixed
+outside the record, by where the consumer obtained it: which observer, over which channel. A verifier
+that accepts `basis: observed` from a writer it has not identified is grading a self-report as an
+observation.
+
 These records are correspondingly not an envelope for other formats to profile under, and they do not
 conform to any vendor's envelope. The same frozen record travels in four carriers below and recomputes to
 one content address in each; any carrier that declares its canonicalization beside its digest can hold

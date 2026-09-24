@@ -7,7 +7,9 @@ overview is [README.md](README.md); this file is the machine-oriented entry poin
 
 Three worked observed-effect experiments. An observed-effect record is issued by
 an observer that is not the component whose behaviour it describes, so it sits in
-a different source class than a self-report. The records are bounded evidence
+a different source class than a self-report. The record does not prove who wrote it: the class
+is fixed by where a consumer obtained the record, not by anything inside it (README,
+"Source class and claim ceiling"). The records are bounded evidence
 artifacts: they claim no runtime truth, intent, maliciousness, safety, or
 enforcement. The external verdict vocabulary is `match | mismatch | incomplete
 | invalid`.
