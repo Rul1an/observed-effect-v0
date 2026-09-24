@@ -40,7 +40,7 @@ verdict; `run.py` derives one the way a consuming gate would, from the bytes alo
 | scope | `body.scope` names the observation boundary | declared on the record |
 | freshness | **not pinned in v0** — the record carries no external time anchor | **honest gap**, stated below |
 | recompute | `run.py` re-derives address and verdict with no issuer/key; `issuer_attested` is marked, not implied | yes |
-| coverage | `basis ∈ {observed, not_observed, unknown}`; `record_set_v0` surfaces a not-observed required channel as incomplete | yes |
+| coverage | `basis ∈ {observed, not_observed, unknown}`; `record_set_v0` surfaces a not-observed required channel as incomplete | declared on the record: the corpus checks that the verdict follows from `basis`, not that the writer observed anything (below) |
 | non-claims | every record carries `non_claims` | yes |
 
 ## Non-claims
@@ -49,6 +49,10 @@ verdict; `run.py` derives one the way a consuming gate would, from the bytes alo
   complete enough to support any claim.
 - The record carries no verdict, no severity, and no action; the decision is the consumer's.
 - The record is not an issuer: no signature or attestation is asserted by the record itself.
+- `basis` is the writer's statement. `run.py` returns `match` for `basis: observed` when the declared and
+  observed effects agree, whoever wrote the record; nothing in the record identifies the writer. A
+  producer describing its own effect can write `observed`, and whether a consumer admits that basis
+  depends on where it obtained the record, which this corpus does not test.
 - **Freshness is not pinned in v0.** The corpus does not carry an external time anchor, so it makes
   no claim about when an observation was made relative to a trusted clock. A record-reference contract
   that pins freshness would add an external time attestation alongside the address; that is out of
